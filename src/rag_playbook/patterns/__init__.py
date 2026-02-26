@@ -1,7 +1,7 @@
 """Pattern registry and factory.
 
-Every pattern decorates itself with ``@register_pattern`` which adds
-it to the global registry. The factory creates patterns by name.
+All pattern classes define a ``_pattern_name`` class attribute.
+This module imports them and registers them in the global registry.
 """
 
 from __future__ import annotations
@@ -20,19 +20,12 @@ if TYPE_CHECKING:
 PATTERN_REGISTRY: dict[str, type[BaseRAGPattern]] = {}
 
 
-def register_pattern(cls: type[BaseRAGPattern]) -> type[BaseRAGPattern]:
-    """Class decorator to register a pattern in the global registry."""
-    # Instantiate temporarily to read the property
-    # Instead, use a class-level attribute or convention
-    name = cls.__dict__.get("_pattern_name", None)
+def _register(cls: type[BaseRAGPattern]) -> None:
+    """Register a pattern class by its _pattern_name attribute."""
+    name = cls.__dict__.get("_pattern_name")
     if name is None:
-        # Fallback: use a temporary approach to get the property value
-        # We'll use a naming convention: class must define _pattern_name
-        raise ConfigurationError(
-            f"Pattern {cls.__name__} must define a '_pattern_name' class attribute"
-        )
+        raise ConfigurationError(f"Pattern {cls.__name__} must define '_pattern_name'")
     PATTERN_REGISTRY[name] = cls
-    return cls
 
 
 def create_pattern(
@@ -69,14 +62,24 @@ def available_pattern_names() -> list[str]:
     return sorted(PATTERN_REGISTRY.keys())
 
 
-# Import all patterns to trigger registration
-from rag_playbook.patterns import (  # noqa: E402, F401
-    agentic,
-    hybrid_search,
-    hyde,
-    naive,
-    parent_child,
-    query_decomposition,
-    reranking,
-    self_correcting,
-)
+# Import all pattern classes and register them
+from rag_playbook.patterns.agentic import AgenticRAG  # noqa: E402
+from rag_playbook.patterns.hybrid_search import HybridSearchRAG  # noqa: E402
+from rag_playbook.patterns.hyde import HyDERAG  # noqa: E402
+from rag_playbook.patterns.naive import NaiveRAG  # noqa: E402
+from rag_playbook.patterns.parent_child import ParentChildRAG  # noqa: E402
+from rag_playbook.patterns.query_decomposition import QueryDecompositionRAG  # noqa: E402
+from rag_playbook.patterns.reranking import RerankingRAG  # noqa: E402
+from rag_playbook.patterns.self_correcting import SelfCorrectingRAG  # noqa: E402
+
+for _cls in [
+    NaiveRAG,
+    HybridSearchRAG,
+    RerankingRAG,
+    ParentChildRAG,
+    QueryDecompositionRAG,
+    HyDERAG,
+    SelfCorrectingRAG,
+    AgenticRAG,
+]:
+    _register(_cls)
