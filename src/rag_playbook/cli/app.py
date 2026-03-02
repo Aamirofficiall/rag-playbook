@@ -15,6 +15,7 @@ app = typer.Typer(
 )
 
 # Import and register commands
+from rag_playbook.cli.bench_cmd import bench  # noqa: E402
 from rag_playbook.cli.compare_cmd import compare  # noqa: E402
 from rag_playbook.cli.ingest_cmd import ingest  # noqa: E402
 from rag_playbook.cli.patterns_cmd import patterns  # noqa: E402
@@ -25,6 +26,7 @@ app.command()(run)
 app.command()(compare)
 app.command()(recommend)
 app.command()(ingest)
+app.command()(bench)
 app.command()(patterns)
 
 
