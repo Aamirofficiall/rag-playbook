@@ -1,0 +1,847 @@
+{
+  "query": "What is the refund policy?",
+  "recommended": "naive",
+  "results": {
+    "agentic": {
+      "answer": "TechCorp offers a comprehensive refund policy as follows:\n\n**Eligibility:**\n- Refunds are available for products purchased within the last 30 days.\n- Items must be unused, in original packaging, and in the same condition as received.\n- Digital products are eligible for refund within 14 days if less than 20% of the content has been accessed.\n\n**Process:**\n- To initiate a refund, contact support at support@techcorp.com with your order number and reason for return.\n- Refunds are processed within 5-7 business days upon receiving the item, credited to the original payment method.\n\n**Exceptions:**\n- Non-refundable items include customized products, clearance items marked as \"Final Sale,\" gift cards, and items damaged by the customer.\n\n**Partial Refunds:**\n- Items returned after 30 days but within 60 days may receive a 75% refund.\n- Products with minor damage could receive a refund between 50-90% based on condition.\n\nFor more detailed inquiries, customers can reach out via email or phone.",
+      "sources": [
+        {
+          "id": "sample_docs/refund_policy.md:3edf60b5",
+          "document_id": "sample_docs/refund_policy.md",
+          "content": "# Refund Policy\n\n## Overview\n\nAt TechCorp, we stand behind our products. If you're not satisfied with your purchase, we offer a comprehensive refund policy to ensure your peace of mind.\n\n## Eligibility\n\nRefunds are available for products purchased within the last 30 days. To be eligible for a refund, the item must be unused, in its original packaging, and in the same condition that you received it. Digital products (software licenses, subscriptions) are eligible for refund within 14 days of purchase if less than 20% of the content has been accessed.\n\n## Process\n\nTo initiate a refund, contact our support team at support@techcorp.com with your order number and reason for the return. Our team will review your request within 2 business days and provide a return shipping label if applicable.\n\nOnce we receive the returned item, refunds are processed within 5-7 business days. The refund will be credited to the original payment method. For credit card payments, please allow an additional 3-5 business days for the refund to appear on your statement.\n\n## Exceptions\n\nThe following items are not eligible for refund:\n- Customized or personalized products\n- Clearance items marked as \"Final Sale\"\n- Gift cards and store credit\n- Products damaged by the customer\n- Items purchased more than 30 days ago\n\n## Partial Refunds\n\nIn some cases, we may offer a partial refund:\n- Items returned after 30 days but within 60 days receive a 75% refund\n- Products with minor damage may receive a 50-90% refund depending on condition\n- Opened software with more than 20% usage receives a prorated refund\n\n## Contact\n\nFor questions about our refund policy, please contact:\n- Email: support@techcorp.com\n- Phone: 1-800-TECHCORP (1-800-832-4267)\n- Live Chat: Available Monday-Friday, 9AM-6PM EST\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.5308545131099659,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/security_guide.md:9874ddb6",
+          "document_id": "sample_docs/security_guide.md",
+          "content": " **Lessons Learned:** Post-incident review within 48 hours, published to affected customers\n\n### Security Contact\n\nReport security vulnerabilities to security@techcorp.com. We operate a bug bounty program with rewards up to $50,000 for critical vulnerabilities. We commit to acknowledging reports within 24 hours and providing a resolution timeline within 72 hours.\n\n## Network Security\n\n- DDoS protection via Cloudflare Enterprise\n- Web Application Firewall (WAF) with custom rule sets\n- Network segmentation between production, staging, and development environments\n- VPN access required for all internal systems\n- Regular penetration testing by NCC Group (quarterly)\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 1,
+            "overlap_tokens": 50
+          },
+          "score": 0.23651041272558146,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/security_guide.md:af53fffb",
+          "document_id": "sample_docs/security_guide.md",
+          "content": "# TechCorp Security Guide\n\n## Data Protection\n\nTechCorp implements multiple layers of security to protect your data:\n\n### Encryption\n\n- **At rest:** All data is encrypted using AES-256-GCM. Encryption keys are managed by AWS KMS with automatic key rotation every 90 days.\n- **In transit:** All connections use TLS 1.3. We enforce HSTS with a minimum age of one year. Certificate pinning is available for mobile applications.\n- **Application-level:** Sensitive fields (API keys, passwords, PII) are additionally encrypted with envelope encryption before storage.\n\n### Access Control\n\nTechCorp uses a Role-Based Access Control (RBAC) model with the following default roles:\n\n| Role | Permissions |\n|------|------------|\n| Viewer | Read-only access to dashboards and reports |\n| Operator | Viewer + ability to manage instances and alerts |\n| Admin | Operator + user management and billing |\n| Owner | Full access including API key management and account deletion |\n\nCustom roles can be created with granular permissions. All role changes are logged in the audit trail.\n\n### Audit Logging\n\nEvery action in the TechCorp Platform is logged with:\n- Timestamp (UTC)\n- User ID and IP address\n- Action performed\n- Resource affected\n- Result (success/failure)\n\nAudit logs are retained for 2 years and can be exported via the API or downloaded from the Dashboard. Logs are immutable and tamper-evident using cryptographic chaining.\n\n## Compliance\n\nTechCorp maintains the following certifications and compliance standards:\n\n- **SOC 2 Type II** \u2014 Audited annually by Deloitte\n- **ISO 27001** \u2014 Information security management\n- **GDPR** \u2014 Full compliance for EU data subjects\n- **HIPAA** \u2014 Available for healthcare customers (requires BAA)\n- **PCI DSS Level 1** \u2014 For customers processing payment data\n\n## Incident Response\n\nOur incident response process follows the NIST framework:\n\n1. **Detection:** Automated monitoring with <5 minute detection time for critical issues\n2. **Containment:** Affected systems are isolated within 15 minutes\n3. **Eradication:** Root cause analysis and remediation within 4 hours\n4. **Recovery:** Service restoration with full data integrity verification\n5. **Lessons Learned:** Post-incident review within 48 hours, published to affected customers\n\n### Security Contact\n\nReport security vulnerabilities to security@techcorp.com. We operate a bug bounty program with rewards up to $50,000 for critical vulnerabilities",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.16481062231764046,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/product_specs.md:db3f2e9e",
+          "document_id": "sample_docs/product_specs.md",
+          "content": "# Product Specifications\n\n## TechCorp Pro Laptop (Model TC-2026)\n\n### Hardware Specifications\n\n| Component | Specification |\n|-----------|--------------|\n| Processor | Intel Core i9-14900K, 24 cores, 5.8GHz boost |\n| Memory | 64GB DDR5-5600 (2x32GB, expandable to 128GB) |\n| Storage | 2TB NVMe PCIe 5.0 SSD |\n| Display | 16\" Mini-LED, 3456x2234, 120Hz, P3 wide color |\n| Graphics | NVIDIA RTX 5090 Mobile, 16GB GDDR7 |\n| Battery | 100Wh lithium-polymer, up to 18 hours |\n| Weight | 2.14 kg (4.72 lbs) |\n| Ports | 3x Thunderbolt 5, 1x HDMI 2.1, 1x SD card reader, 1x 3.5mm audio |\n\n### Software\n\nThe TC-2026 ships with TechCorp OS 5.0, which includes:\n- Built-in AI assistant powered by on-device LLM\n- Automatic cloud backup with 1TB included storage\n- TechCorp Suite (word processor, spreadsheet, presentation)\n- Security suite with real-time threat protection\n\n### Connectivity\n\n- WiFi 7 (802.11be) with tri-band support\n- Bluetooth 5.4\n- Optional 5G cellular module (add $199)\n- NFC for quick device pairing\n\n### Warranty\n\nAll TC-2026 units come with a standard 2-year warranty covering manufacturing defects. Extended warranty options:\n- 3-year coverage: $149\n- 5-year coverage with accidental damage: $349\n- Enterprise fleet pricing available for orders of 50+ units\n\n### Performance Benchmarks\n\nIn independent testing (TechReview Labs, March 2026):\n- Cinebench R24: Multi-core score of 42,500\n- 3DMark Time Spy: 28,400\n- PCMark 10: 8,950\n- Battery life (video playback): 16.5 hours\n- Battery life (web browsing): 14.2 hours\n- SSD sequential read: 14,500 MB/s\n- SSD sequential write: 12,800 MB/s\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.10826795577435969,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/api_reference.md:594bd5f7",
+          "document_id": "sample_docs/api_reference.md",
+          "content": "# TechCorp API Reference\n\n## Authentication\n\nAll API requests require authentication via Bearer token. Include your API key in the Authorization header:\n\n```\nAuthorization: Bearer tc_live_abc123xyz\n```\n\nAPI keys can be generated from the TechCorp Dashboard under Settings > API Keys. Each key has configurable permissions and rate limits.\n\n## Rate Limits\n\n| Plan | Requests/minute | Requests/day |\n|------|----------------|--------------|\n| Free | 60 | 1,000 |\n| Pro | 600 | 50,000 |\n| Enterprise | 6,000 | Unlimited |\n\nRate limit headers are included in every response:\n- `X-RateLimit-Limit`: Maximum requests per minute\n- `X-RateLimit-Remaining`: Remaining requests in current window\n- `X-RateLimit-Reset`: Unix timestamp when the window resets\n\n## Endpoints\n\n### GET /api/v2/instances\n\nList all cloud instances managed by TechCorp.\n\n**Parameters:**\n- `region` (optional): Filter by region (e.g., `us-east-1`, `eu-west-1`)\n- `status` (optional): Filter by status (`running`, `stopped`, `terminated`)\n- `page` (optional, default: 1): Page number for pagination\n- `per_page` (optional, default: 50, max: 200): Results per page\n\n**Response:**\n```json\n{\n  \"data\": [\n    {\n      \"id\": \"inst_abc123\",\n      \"name\": \"web-server-prod-01\",\n      \"type\": \"c5.2xlarge\",\n      \"region\": \"us-east-1\",\n      \"status\": \"running\",\n      \"monthly_cost\": 245.50,\n      \"cpu_utilization\": 0.42,\n      \"created_at\": \"2026-01-15T08:30:00Z\"\n    }\n  ],\n  \"pagination\": {\n    \"page\": 1,\n    \"per_page\": 50,\n    \"total\": 234,\n    \"total_pages\": 5\n  }\n}\n```\n\n### POST /api/v2/instances/{id}/optimize\n\nRun cost optimization analysis on a specific instance.\n\n**Response:**\n```json\n{\n  \"instance_id\": \"inst_abc123\",\n  \"current_cost\": 245.50,\n  \"recommended_type\": \"c5.xlarge\",\n  \"projected_cost\": 122.75,\n  \"s",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.09447511672405488,
+          "retrieval_method": "vector"
+        }
+      ],
+      "metadata": {
+        "pattern": "agentic",
+        "model": "openai/gpt-4o-mini",
+        "embedding_model": "openai/text-embedding-3-small",
+        "tokens_used": 2551,
+        "latency_ms": 7190.395000157878,
+        "cost_usd": 0.0004992,
+        "retrieval_count": 5,
+        "final_chunk_count": 5,
+        "steps": [
+          {
+            "step": "iteration_1",
+            "latency_ms": 1598.745167022571,
+            "detail": "search(\"refund policy\") \u2192 5 chunks"
+          },
+          {
+            "step": "iteration_2",
+            "latency_ms": 5591.624958906323,
+            "detail": "final answer"
+          }
+        ]
+      }
+    },
+    "hybrid_search": {
+      "answer": "At TechCorp, the refund policy includes the following key points:\n\n1. **Eligibility**: Refunds are available for products purchased within the last 30 days. Items must be unused, in original packaging, and in the same condition as received. Digital products can be refunded within 14 days if less than 20% of the content has been accessed.\n\n2. **Process**: To initiate a refund, contact support at support@techcorp.com with your order number and reason for the return. Requests are reviewed within 2 business days, and a return shipping label will be provided if applicable. Refunds are processed within 5-7 business days after the item is received, credited to the original payment method.\n\n3. **Exceptions**: The following items are not eligible for refund:\n   - Customized or personalized products\n   - Clearance items marked as \"Final Sale\"\n   - Gift cards and store credit\n   - Damaged products\n   - Items purchased more than 30 days ago\n\n4. **Partial Refunds**: Partial refunds may be offered for items returned after 30 days but within 60 days (75% refund), for products with minor damage (50-90% refund), or for opened software with more than 20% usage (prorated refund).\n\n5. **Contact**: For questions about the refund policy, you can reach TechCorp via email at support@techcorp.com or call 1-800-TECHCORP (1-800-832-4267).",
+      "sources": [
+        {
+          "id": "sample_docs/refund_policy.md:3edf60b5",
+          "document_id": "sample_docs/refund_policy.md",
+          "content": "# Refund Policy\n\n## Overview\n\nAt TechCorp, we stand behind our products. If you're not satisfied with your purchase, we offer a comprehensive refund policy to ensure your peace of mind.\n\n## Eligibility\n\nRefunds are available for products purchased within the last 30 days. To be eligible for a refund, the item must be unused, in its original packaging, and in the same condition that you received it. Digital products (software licenses, subscriptions) are eligible for refund within 14 days of purchase if less than 20% of the content has been accessed.\n\n## Process\n\nTo initiate a refund, contact our support team at support@techcorp.com with your order number and reason for the return. Our team will review your request within 2 business days and provide a return shipping label if applicable.\n\nOnce we receive the returned item, refunds are processed within 5-7 business days. The refund will be credited to the original payment method. For credit card payments, please allow an additional 3-5 business days for the refund to appear on your statement.\n\n## Exceptions\n\nThe following items are not eligible for refund:\n- Customized or personalized products\n- Clearance items marked as \"Final Sale\"\n- Gift cards and store credit\n- Products damaged by the customer\n- Items purchased more than 30 days ago\n\n## Partial Refunds\n\nIn some cases, we may offer a partial refund:\n- Items returned after 30 days but within 60 days receive a 75% refund\n- Products with minor damage may receive a 50-90% refund depending on condition\n- Opened software with more than 20% usage receives a prorated refund\n\n## Contact\n\nFor questions about our refund policy, please contact:\n- Email: support@techcorp.com\n- Phone: 1-800-TECHCORP (1-800-832-4267)\n- Live Chat: Available Monday-Friday, 9AM-6PM EST\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 1.0,
+          "retrieval_method": "hybrid"
+        },
+        {
+          "id": "sample_docs/security_guide.md:af53fffb",
+          "document_id": "sample_docs/security_guide.md",
+          "content": "# TechCorp Security Guide\n\n## Data Protection\n\nTechCorp implements multiple layers of security to protect your data:\n\n### Encryption\n\n- **At rest:** All data is encrypted using AES-256-GCM. Encryption keys are managed by AWS KMS with automatic key rotation every 90 days.\n- **In transit:** All connections use TLS 1.3. We enforce HSTS with a minimum age of one year. Certificate pinning is available for mobile applications.\n- **Application-level:** Sensitive fields (API keys, passwords, PII) are additionally encrypted with envelope encryption before storage.\n\n### Access Control\n\nTechCorp uses a Role-Based Access Control (RBAC) model with the following default roles:\n\n| Role | Permissions |\n|------|------------|\n| Viewer | Read-only access to dashboards and reports |\n| Operator | Viewer + ability to manage instances and alerts |\n| Admin | Operator + user management and billing |\n| Owner | Full access including API key management and account deletion |\n\nCustom roles can be created with granular permissions. All role changes are logged in the audit trail.\n\n### Audit Logging\n\nEvery action in the TechCorp Platform is logged with:\n- Timestamp (UTC)\n- User ID and IP address\n- Action performed\n- Resource affected\n- Result (success/failure)\n\nAudit logs are retained for 2 years and can be exported via the API or downloaded from the Dashboard. Logs are immutable and tamper-evident using cryptographic chaining.\n\n## Compliance\n\nTechCorp maintains the following certifications and compliance standards:\n\n- **SOC 2 Type II** \u2014 Audited annually by Deloitte\n- **ISO 27001** \u2014 Information security management\n- **GDPR** \u2014 Full compliance for EU data subjects\n- **HIPAA** \u2014 Available for healthcare customers (requires BAA)\n- **PCI DSS Level 1** \u2014 For customers processing payment data\n\n## Incident Response\n\nOur incident response process follows the NIST framework:\n\n1. **Detection:** Automated monitoring with <5 minute detection time for critical issues\n2. **Containment:** Affected systems are isolated within 15 minutes\n3. **Eradication:** Root cause analysis and remediation within 4 hours\n4. **Recovery:** Service restoration with full data integrity verification\n5. **Lessons Learned:** Post-incident review within 48 hours, published to affected customers\n\n### Security Contact\n\nReport security vulnerabilities to security@techcorp.com. We operate a bug bounty program with rewards up to $50,000 for critical vulnerabilities",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.9760624679979518,
+          "retrieval_method": "hybrid"
+        },
+        {
+          "id": "sample_docs/api_reference.md:594bd5f7",
+          "document_id": "sample_docs/api_reference.md",
+          "content": "# TechCorp API Reference\n\n## Authentication\n\nAll API requests require authentication via Bearer token. Include your API key in the Authorization header:\n\n```\nAuthorization: Bearer tc_live_abc123xyz\n```\n\nAPI keys can be generated from the TechCorp Dashboard under Settings > API Keys. Each key has configurable permissions and rate limits.\n\n## Rate Limits\n\n| Plan | Requests/minute | Requests/day |\n|------|----------------|--------------|\n| Free | 60 | 1,000 |\n| Pro | 600 | 50,000 |\n| Enterprise | 6,000 | Unlimited |\n\nRate limit headers are included in every response:\n- `X-RateLimit-Limit`: Maximum requests per minute\n- `X-RateLimit-Remaining`: Remaining requests in current window\n- `X-RateLimit-Reset`: Unix timestamp when the window resets\n\n## Endpoints\n\n### GET /api/v2/instances\n\nList all cloud instances managed by TechCorp.\n\n**Parameters:**\n- `region` (optional): Filter by region (e.g., `us-east-1`, `eu-west-1`)\n- `status` (optional): Filter by status (`running`, `stopped`, `terminated`)\n- `page` (optional, default: 1): Page number for pagination\n- `per_page` (optional, default: 50, max: 200): Results per page\n\n**Response:**\n```json\n{\n  \"data\": [\n    {\n      \"id\": \"inst_abc123\",\n      \"name\": \"web-server-prod-01\",\n      \"type\": \"c5.2xlarge\",\n      \"region\": \"us-east-1\",\n      \"status\": \"running\",\n      \"monthly_cost\": 245.50,\n      \"cpu_utilization\": 0.42,\n      \"created_at\": \"2026-01-15T08:30:00Z\"\n    }\n  ],\n  \"pagination\": {\n    \"page\": 1,\n    \"per_page\": 50,\n    \"total\": 234,\n    \"total_pages\": 5\n  }\n}\n```\n\n### POST /api/v2/instances/{id}/optimize\n\nRun cost optimization analysis on a specific instance.\n\n**Response:**\n```json\n{\n  \"instance_id\": \"inst_abc123\",\n  \"current_cost\": 245.50,\n  \"recommended_type\": \"c5.xlarge\",\n  \"projected_cost\": 122.75,\n  \"s",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.9457932692307692,
+          "retrieval_method": "hybrid"
+        },
+        {
+          "id": "sample_docs/product_specs.md:db3f2e9e",
+          "document_id": "sample_docs/product_specs.md",
+          "content": "# Product Specifications\n\n## TechCorp Pro Laptop (Model TC-2026)\n\n### Hardware Specifications\n\n| Component | Specification |\n|-----------|--------------|\n| Processor | Intel Core i9-14900K, 24 cores, 5.8GHz boost |\n| Memory | 64GB DDR5-5600 (2x32GB, expandable to 128GB) |\n| Storage | 2TB NVMe PCIe 5.0 SSD |\n| Display | 16\" Mini-LED, 3456x2234, 120Hz, P3 wide color |\n| Graphics | NVIDIA RTX 5090 Mobile, 16GB GDDR7 |\n| Battery | 100Wh lithium-polymer, up to 18 hours |\n| Weight | 2.14 kg (4.72 lbs) |\n| Ports | 3x Thunderbolt 5, 1x HDMI 2.1, 1x SD card reader, 1x 3.5mm audio |\n\n### Software\n\nThe TC-2026 ships with TechCorp OS 5.0, which includes:\n- Built-in AI assistant powered by on-device LLM\n- Automatic cloud backup with 1TB included storage\n- TechCorp Suite (word processor, spreadsheet, presentation)\n- Security suite with real-time threat protection\n\n### Connectivity\n\n- WiFi 7 (802.11be) with tri-band support\n- Bluetooth 5.4\n- Optional 5G cellular module (add $199)\n- NFC for quick device pairing\n\n### Warranty\n\nAll TC-2026 units come with a standard 2-year warranty covering manufacturing defects. Extended warranty options:\n- 3-year coverage: $149\n- 5-year coverage with accidental damage: $349\n- Enterprise fleet pricing available for orders of 50+ units\n\n### Performance Benchmarks\n\nIn independent testing (TechReview Labs, March 2026):\n- Cinebench R24: Multi-core score of 42,500\n- 3DMark Time Spy: 28,400\n- PCMark 10: 8,950\n- Battery life (video playback): 16.5 hours\n- Battery life (web browsing): 14.2 hours\n- SSD sequential read: 14,500 MB/s\n- SSD sequential write: 12,800 MB/s\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.938683712121212,
+          "retrieval_method": "hybrid"
+        },
+        {
+          "id": "sample_docs/company_history.md:c1f7ffdb",
+          "document_id": "sample_docs/company_history.md",
+          "content": "# TechCorp Company History\n\n## Founding (2015)\n\nTechCorp was founded in 2015 by Sarah Chen and Marcus Williams in a garage in Austin, Texas. The company started as a small consultancy helping businesses integrate cloud computing solutions. With just $50,000 in seed funding from friends and family, the founders built their first product: a cloud migration tool that automated the process of moving on-premise applications to AWS.\n\n## Early Growth (2016-2018)\n\nIn 2016, TechCorp secured $2 million in Series A funding from Horizon Ventures. This allowed the company to hire its first 15 employees and move to a proper office space in downtown Austin. The cloud migration tool gained traction with mid-market companies, reaching 200 paying customers by the end of 2017.\n\nBy 2018, TechCorp had expanded its product line to include a monitoring dashboard and a cost optimization tool for cloud infrastructure. Revenue reached $8 million, and the team grew to 45 employees. The company also opened a second office in San Francisco to be closer to the tech ecosystem.\n\n## Scale-Up Phase (2019-2021)\n\nThe COVID-19 pandemic in 2020 accelerated cloud adoption worldwide, and TechCorp was perfectly positioned to benefit. Revenue jumped from $15 million in 2019 to $42 million in 2020. The company raised a $30 million Series B round led by Sequoia Capital.\n\nIn 2021, TechCorp launched its flagship product: TechCorp Platform, an integrated suite of cloud management tools. The platform combined migration, monitoring, cost optimization, and security into a single dashboard. This was a turning point for the company, as enterprise customers began replacing multiple point solutions with TechCorp's unified platform.\n\n## AI Pivot (2022-2024)\n\nRecognizing the transformative potential of large language models, TechCorp made a strategic pivot in 2022. The company invested heavily in AI capabilities, hiring a team of 30 ML engineers and researchers. By 2023, TechCorp had integrated AI into its platform, offering intelligent cost recommendations, automated incident response, and natural language querying of infrastructure metrics.\n\nThe AI features drove rapid growth: revenue hit $120 million in 2023 and $210 million in 2024. TechCorp raised a $150 million Series C round at a $2.1 billion valuation, officially becoming a unicorn.\n\n## Present Day (2025-2026)\n\nTechCorp now employs over 800 people across offices in Austin (HQ), San",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.9326563958916899,
+          "retrieval_method": "hybrid"
+        }
+      ],
+      "metadata": {
+        "pattern": "hybrid_search",
+        "model": "openai/gpt-4o-mini",
+        "embedding_model": "openai/text-embedding-3-small",
+        "tokens_used": 2782,
+        "latency_ms": 6047.616916010156,
+        "cost_usd": 0.0005554500000000001,
+        "retrieval_count": 5,
+        "final_chunk_count": 5,
+        "steps": [
+          {
+            "step": "preprocess",
+            "latency_ms": 0.000833999365568161,
+            "detail": null
+          },
+          {
+            "step": "retrieve",
+            "latency_ms": 312.79195798560977,
+            "detail": "5 chunks"
+          },
+          {
+            "step": "postprocess",
+            "latency_ms": 0.002708984538912773,
+            "detail": "5\u21925 chunks"
+          },
+          {
+            "step": "generate",
+            "latency_ms": 5734.799082856625,
+            "detail": "2475+307 tokens"
+          },
+          {
+            "step": "validate",
+            "latency_ms": 0.001250067725777626,
+            "detail": null
+          }
+        ]
+      }
+    },
+    "hyde": {
+      "answer": "At TechCorp, we offer a comprehensive refund policy for products purchased within the last 30 days. To be eligible for a refund, the item must be unused, in its original packaging, and in the same condition that you received it. Digital products are eligible for a refund within 14 days of purchase if less than 20% of the content has been accessed.\n\nTo initiate a refund, you need to contact our support team at support@techcorp.com with your order number and reason for the return. The team will review your request within 2 business days and provide a return shipping label if applicable. Refunds are processed within 5-7 business days after receiving the returned item and are credited to the original payment method.\n\nThere are exceptions where items are not eligible for a refund, including customized or personalized products, clearance items marked as \"Final Sale,\" gift cards, products damaged by the customer, and items purchased more than 30 days ago.\n\nPartial refunds may be offered for items returned after 30 days but within 60 days (75% refund), products with minor damage (50-90% refund depending on condition), or opened software with more than 20% usage (prorated refund).",
+      "sources": [
+        {
+          "id": "sample_docs/refund_policy.md:3edf60b5",
+          "document_id": "sample_docs/refund_policy.md",
+          "content": "# Refund Policy\n\n## Overview\n\nAt TechCorp, we stand behind our products. If you're not satisfied with your purchase, we offer a comprehensive refund policy to ensure your peace of mind.\n\n## Eligibility\n\nRefunds are available for products purchased within the last 30 days. To be eligible for a refund, the item must be unused, in its original packaging, and in the same condition that you received it. Digital products (software licenses, subscriptions) are eligible for refund within 14 days of purchase if less than 20% of the content has been accessed.\n\n## Process\n\nTo initiate a refund, contact our support team at support@techcorp.com with your order number and reason for the return. Our team will review your request within 2 business days and provide a return shipping label if applicable.\n\nOnce we receive the returned item, refunds are processed within 5-7 business days. The refund will be credited to the original payment method. For credit card payments, please allow an additional 3-5 business days for the refund to appear on your statement.\n\n## Exceptions\n\nThe following items are not eligible for refund:\n- Customized or personalized products\n- Clearance items marked as \"Final Sale\"\n- Gift cards and store credit\n- Products damaged by the customer\n- Items purchased more than 30 days ago\n\n## Partial Refunds\n\nIn some cases, we may offer a partial refund:\n- Items returned after 30 days but within 60 days receive a 75% refund\n- Products with minor damage may receive a 50-90% refund depending on condition\n- Opened software with more than 20% usage receives a prorated refund\n\n## Contact\n\nFor questions about our refund policy, please contact:\n- Email: support@techcorp.com\n- Phone: 1-800-TECHCORP (1-800-832-4267)\n- Live Chat: Available Monday-Friday, 9AM-6PM EST\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.6452283110663164,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/security_guide.md:9874ddb6",
+          "document_id": "sample_docs/security_guide.md",
+          "content": " **Lessons Learned:** Post-incident review within 48 hours, published to affected customers\n\n### Security Contact\n\nReport security vulnerabilities to security@techcorp.com. We operate a bug bounty program with rewards up to $50,000 for critical vulnerabilities. We commit to acknowledging reports within 24 hours and providing a resolution timeline within 72 hours.\n\n## Network Security\n\n- DDoS protection via Cloudflare Enterprise\n- Web Application Firewall (WAF) with custom rule sets\n- Network segmentation between production, staging, and development environments\n- VPN access required for all internal systems\n- Regular penetration testing by NCC Group (quarterly)\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 1,
+            "overlap_tokens": 50
+          },
+          "score": 0.2243120744402699,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/security_guide.md:af53fffb",
+          "document_id": "sample_docs/security_guide.md",
+          "content": "# TechCorp Security Guide\n\n## Data Protection\n\nTechCorp implements multiple layers of security to protect your data:\n\n### Encryption\n\n- **At rest:** All data is encrypted using AES-256-GCM. Encryption keys are managed by AWS KMS with automatic key rotation every 90 days.\n- **In transit:** All connections use TLS 1.3. We enforce HSTS with a minimum age of one year. Certificate pinning is available for mobile applications.\n- **Application-level:** Sensitive fields (API keys, passwords, PII) are additionally encrypted with envelope encryption before storage.\n\n### Access Control\n\nTechCorp uses a Role-Based Access Control (RBAC) model with the following default roles:\n\n| Role | Permissions |\n|------|------------|\n| Viewer | Read-only access to dashboards and reports |\n| Operator | Viewer + ability to manage instances and alerts |\n| Admin | Operator + user management and billing |\n| Owner | Full access including API key management and account deletion |\n\nCustom roles can be created with granular permissions. All role changes are logged in the audit trail.\n\n### Audit Logging\n\nEvery action in the TechCorp Platform is logged with:\n- Timestamp (UTC)\n- User ID and IP address\n- Action performed\n- Resource affected\n- Result (success/failure)\n\nAudit logs are retained for 2 years and can be exported via the API or downloaded from the Dashboard. Logs are immutable and tamper-evident using cryptographic chaining.\n\n## Compliance\n\nTechCorp maintains the following certifications and compliance standards:\n\n- **SOC 2 Type II** \u2014 Audited annually by Deloitte\n- **ISO 27001** \u2014 Information security management\n- **GDPR** \u2014 Full compliance for EU data subjects\n- **HIPAA** \u2014 Available for healthcare customers (requires BAA)\n- **PCI DSS Level 1** \u2014 For customers processing payment data\n\n## Incident Response\n\nOur incident response process follows the NIST framework:\n\n1. **Detection:** Automated monitoring with <5 minute detection time for critical issues\n2. **Containment:** Affected systems are isolated within 15 minutes\n3. **Eradication:** Root cause analysis and remediation within 4 hours\n4. **Recovery:** Service restoration with full data integrity verification\n5. **Lessons Learned:** Post-incident review within 48 hours, published to affected customers\n\n### Security Contact\n\nReport security vulnerabilities to security@techcorp.com. We operate a bug bounty program with rewards up to $50,000 for critical vulnerabilities",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.19068761047629276,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/product_specs.md:db3f2e9e",
+          "document_id": "sample_docs/product_specs.md",
+          "content": "# Product Specifications\n\n## TechCorp Pro Laptop (Model TC-2026)\n\n### Hardware Specifications\n\n| Component | Specification |\n|-----------|--------------|\n| Processor | Intel Core i9-14900K, 24 cores, 5.8GHz boost |\n| Memory | 64GB DDR5-5600 (2x32GB, expandable to 128GB) |\n| Storage | 2TB NVMe PCIe 5.0 SSD |\n| Display | 16\" Mini-LED, 3456x2234, 120Hz, P3 wide color |\n| Graphics | NVIDIA RTX 5090 Mobile, 16GB GDDR7 |\n| Battery | 100Wh lithium-polymer, up to 18 hours |\n| Weight | 2.14 kg (4.72 lbs) |\n| Ports | 3x Thunderbolt 5, 1x HDMI 2.1, 1x SD card reader, 1x 3.5mm audio |\n\n### Software\n\nThe TC-2026 ships with TechCorp OS 5.0, which includes:\n- Built-in AI assistant powered by on-device LLM\n- Automatic cloud backup with 1TB included storage\n- TechCorp Suite (word processor, spreadsheet, presentation)\n- Security suite with real-time threat protection\n\n### Connectivity\n\n- WiFi 7 (802.11be) with tri-band support\n- Bluetooth 5.4\n- Optional 5G cellular module (add $199)\n- NFC for quick device pairing\n\n### Warranty\n\nAll TC-2026 units come with a standard 2-year warranty covering manufacturing defects. Extended warranty options:\n- 3-year coverage: $149\n- 5-year coverage with accidental damage: $349\n- Enterprise fleet pricing available for orders of 50+ units\n\n### Performance Benchmarks\n\nIn independent testing (TechReview Labs, March 2026):\n- Cinebench R24: Multi-core score of 42,500\n- 3DMark Time Spy: 28,400\n- PCMark 10: 8,950\n- Battery life (video playback): 16.5 hours\n- Battery life (web browsing): 14.2 hours\n- SSD sequential read: 14,500 MB/s\n- SSD sequential write: 12,800 MB/s\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.12789477642181715,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/api_reference.md:ef779847",
+          "document_id": "sample_docs/api_reference.md",
+          "content": "```json\n{\n  \"instance_id\": \"inst_abc123\",\n  \"current_cost\": 245.50,\n  \"recommended_type\": \"c5.xlarge\",\n  \"projected_cost\": 122.75,\n  \"savings_percent\": 50.0,\n  \"confidence\": 0.92,\n  \"reasoning\": \"CPU utilization averaging 42% over 30 days suggests overprovisioning.\"\n}\n```\n\n### GET /api/v2/costs/summary\n\nGet a cost summary for your organization.\n\n**Parameters:**\n- `start_date` (required): Start of date range (YYYY-MM-DD)\n- `end_date` (required): End of date range (YYYY-MM-DD)\n- `group_by` (optional): Group results by `service`, `region`, `team`, or `tag`\n\n### POST /api/v2/alerts\n\nCreate a cost or performance alert.\n\n**Request body:**\n```json\n{\n  \"name\": \"High CPU Alert\",\n  \"type\": \"performance\",\n  \"condition\": {\n    \"metric\": \"cpu_utilization\",\n    \"operator\": \"greater_than\",\n    \"threshold\": 0.85,\n    \"duration_minutes\": 15\n  },\n  \"notification\": {\n    \"channels\": [\"email\", \"slack\"],\n    \"recipients\": [\"ops-team@techcorp.com\"]\n  }\n}\n```\n\n## Error Codes\n\n| Code | Description |\n|------|-------------|\n| 400 | Bad Request \u2014 Invalid parameters |\n| 401 | Unauthorized \u2014 Invalid or missing API key |\n| 403 | Forbidden \u2014 Insufficient permissions |\n| 404 | Not Found \u2014 Resource does not exist |\n| 429 | Too Many Requests \u2014 Rate limit exceeded |\n| 500 | Internal Server Error \u2014 Contact support |\n\n## SDKs\n\nOfficial SDKs are available for:\n- Python: `pip install techcorp-sdk`\n- JavaScript/TypeScript: `npm install @techcorp/sdk`\n- Go: `go get github.com/techcorp/sdk-go`\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 1,
+            "overlap_tokens": 50
+          },
+          "score": 0.12327376473120671,
+          "retrieval_method": "vector"
+        }
+      ],
+      "metadata": {
+        "pattern": "hyde",
+        "model": "openai/gpt-4o-mini",
+        "embedding_model": "openai/text-embedding-3-small",
+        "tokens_used": 2242,
+        "latency_ms": 11346.053125103936,
+        "cost_usd": 0.0004461,
+        "retrieval_count": 5,
+        "final_chunk_count": 5,
+        "steps": [
+          {
+            "step": "preprocess",
+            "latency_ms": 2846.8039999715984,
+            "detail": null
+          },
+          {
+            "step": "retrieve",
+            "latency_ms": 323.1579998973757,
+            "detail": "5 chunks"
+          },
+          {
+            "step": "postprocess",
+            "latency_ms": 0.002125045284628868,
+            "detail": "5\u21925 chunks"
+          },
+          {
+            "step": "generate",
+            "latency_ms": 8176.033874973655,
+            "detail": "1998+244 tokens"
+          },
+          {
+            "step": "validate",
+            "latency_ms": 0.004915986210107803,
+            "detail": null
+          }
+        ]
+      }
+    },
+    "naive": {
+      "answer": "At TechCorp, refunds are available for products purchased within the last 30 days, provided the item is unused, in its original packaging, and in the same condition that it was received. Digital products are eligible for a refund within 14 days of purchase if less than 20% of the content has been accessed. To initiate a refund, contact the support team with your order number and reason for the return. Refunds are processed within 5-7 business days after the returned item is received. Certain items, such as customized products, clearance items marked as \"Final Sale,\" gift cards, and products damaged by the customer, are not eligible for a refund. Partial refunds may be offered in some cases, and specific conditions apply for items returned after 30 days.",
+      "sources": [
+        {
+          "id": "sample_docs/refund_policy.md:3edf60b5",
+          "document_id": "sample_docs/refund_policy.md",
+          "content": "# Refund Policy\n\n## Overview\n\nAt TechCorp, we stand behind our products. If you're not satisfied with your purchase, we offer a comprehensive refund policy to ensure your peace of mind.\n\n## Eligibility\n\nRefunds are available for products purchased within the last 30 days. To be eligible for a refund, the item must be unused, in its original packaging, and in the same condition that you received it. Digital products (software licenses, subscriptions) are eligible for refund within 14 days of purchase if less than 20% of the content has been accessed.\n\n## Process\n\nTo initiate a refund, contact our support team at support@techcorp.com with your order number and reason for the return. Our team will review your request within 2 business days and provide a return shipping label if applicable.\n\nOnce we receive the returned item, refunds are processed within 5-7 business days. The refund will be credited to the original payment method. For credit card payments, please allow an additional 3-5 business days for the refund to appear on your statement.\n\n## Exceptions\n\nThe following items are not eligible for refund:\n- Customized or personalized products\n- Clearance items marked as \"Final Sale\"\n- Gift cards and store credit\n- Products damaged by the customer\n- Items purchased more than 30 days ago\n\n## Partial Refunds\n\nIn some cases, we may offer a partial refund:\n- Items returned after 30 days but within 60 days receive a 75% refund\n- Products with minor damage may receive a 50-90% refund depending on condition\n- Opened software with more than 20% usage receives a prorated refund\n\n## Contact\n\nFor questions about our refund policy, please contact:\n- Email: support@techcorp.com\n- Phone: 1-800-TECHCORP (1-800-832-4267)\n- Live Chat: Available Monday-Friday, 9AM-6PM EST\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.6418887539872182,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/security_guide.md:9874ddb6",
+          "document_id": "sample_docs/security_guide.md",
+          "content": " **Lessons Learned:** Post-incident review within 48 hours, published to affected customers\n\n### Security Contact\n\nReport security vulnerabilities to security@techcorp.com. We operate a bug bounty program with rewards up to $50,000 for critical vulnerabilities. We commit to acknowledging reports within 24 hours and providing a resolution timeline within 72 hours.\n\n## Network Security\n\n- DDoS protection via Cloudflare Enterprise\n- Web Application Firewall (WAF) with custom rule sets\n- Network segmentation between production, staging, and development environments\n- VPN access required for all internal systems\n- Regular penetration testing by NCC Group (quarterly)\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 1,
+            "overlap_tokens": 50
+          },
+          "score": 0.20007657041211174,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/security_guide.md:af53fffb",
+          "document_id": "sample_docs/security_guide.md",
+          "content": "# TechCorp Security Guide\n\n## Data Protection\n\nTechCorp implements multiple layers of security to protect your data:\n\n### Encryption\n\n- **At rest:** All data is encrypted using AES-256-GCM. Encryption keys are managed by AWS KMS with automatic key rotation every 90 days.\n- **In transit:** All connections use TLS 1.3. We enforce HSTS with a minimum age of one year. Certificate pinning is available for mobile applications.\n- **Application-level:** Sensitive fields (API keys, passwords, PII) are additionally encrypted with envelope encryption before storage.\n\n### Access Control\n\nTechCorp uses a Role-Based Access Control (RBAC) model with the following default roles:\n\n| Role | Permissions |\n|------|------------|\n| Viewer | Read-only access to dashboards and reports |\n| Operator | Viewer + ability to manage instances and alerts |\n| Admin | Operator + user management and billing |\n| Owner | Full access including API key management and account deletion |\n\nCustom roles can be created with granular permissions. All role changes are logged in the audit trail.\n\n### Audit Logging\n\nEvery action in the TechCorp Platform is logged with:\n- Timestamp (UTC)\n- User ID and IP address\n- Action performed\n- Resource affected\n- Result (success/failure)\n\nAudit logs are retained for 2 years and can be exported via the API or downloaded from the Dashboard. Logs are immutable and tamper-evident using cryptographic chaining.\n\n## Compliance\n\nTechCorp maintains the following certifications and compliance standards:\n\n- **SOC 2 Type II** \u2014 Audited annually by Deloitte\n- **ISO 27001** \u2014 Information security management\n- **GDPR** \u2014 Full compliance for EU data subjects\n- **HIPAA** \u2014 Available for healthcare customers (requires BAA)\n- **PCI DSS Level 1** \u2014 For customers processing payment data\n\n## Incident Response\n\nOur incident response process follows the NIST framework:\n\n1. **Detection:** Automated monitoring with <5 minute detection time for critical issues\n2. **Containment:** Affected systems are isolated within 15 minutes\n3. **Eradication:** Root cause analysis and remediation within 4 hours\n4. **Recovery:** Service restoration with full data integrity verification\n5. **Lessons Learned:** Post-incident review within 48 hours, published to affected customers\n\n### Security Contact\n\nReport security vulnerabilities to security@techcorp.com. We operate a bug bounty program with rewards up to $50,000 for critical vulnerabilities",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.17868235373322158,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/product_specs.md:db3f2e9e",
+          "document_id": "sample_docs/product_specs.md",
+          "content": "# Product Specifications\n\n## TechCorp Pro Laptop (Model TC-2026)\n\n### Hardware Specifications\n\n| Component | Specification |\n|-----------|--------------|\n| Processor | Intel Core i9-14900K, 24 cores, 5.8GHz boost |\n| Memory | 64GB DDR5-5600 (2x32GB, expandable to 128GB) |\n| Storage | 2TB NVMe PCIe 5.0 SSD |\n| Display | 16\" Mini-LED, 3456x2234, 120Hz, P3 wide color |\n| Graphics | NVIDIA RTX 5090 Mobile, 16GB GDDR7 |\n| Battery | 100Wh lithium-polymer, up to 18 hours |\n| Weight | 2.14 kg (4.72 lbs) |\n| Ports | 3x Thunderbolt 5, 1x HDMI 2.1, 1x SD card reader, 1x 3.5mm audio |\n\n### Software\n\nThe TC-2026 ships with TechCorp OS 5.0, which includes:\n- Built-in AI assistant powered by on-device LLM\n- Automatic cloud backup with 1TB included storage\n- TechCorp Suite (word processor, spreadsheet, presentation)\n- Security suite with real-time threat protection\n\n### Connectivity\n\n- WiFi 7 (802.11be) with tri-band support\n- Bluetooth 5.4\n- Optional 5G cellular module (add $199)\n- NFC for quick device pairing\n\n### Warranty\n\nAll TC-2026 units come with a standard 2-year warranty covering manufacturing defects. Extended warranty options:\n- 3-year coverage: $149\n- 5-year coverage with accidental damage: $349\n- Enterprise fleet pricing available for orders of 50+ units\n\n### Performance Benchmarks\n\nIn independent testing (TechReview Labs, March 2026):\n- Cinebench R24: Multi-core score of 42,500\n- 3DMark Time Spy: 28,400\n- PCMark 10: 8,950\n- Battery life (video playback): 16.5 hours\n- Battery life (web browsing): 14.2 hours\n- SSD sequential read: 14,500 MB/s\n- SSD sequential write: 12,800 MB/s\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.13720917369552546,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/api_reference.md:594bd5f7",
+          "document_id": "sample_docs/api_reference.md",
+          "content": "# TechCorp API Reference\n\n## Authentication\n\nAll API requests require authentication via Bearer token. Include your API key in the Authorization header:\n\n```\nAuthorization: Bearer tc_live_abc123xyz\n```\n\nAPI keys can be generated from the TechCorp Dashboard under Settings > API Keys. Each key has configurable permissions and rate limits.\n\n## Rate Limits\n\n| Plan | Requests/minute | Requests/day |\n|------|----------------|--------------|\n| Free | 60 | 1,000 |\n| Pro | 600 | 50,000 |\n| Enterprise | 6,000 | Unlimited |\n\nRate limit headers are included in every response:\n- `X-RateLimit-Limit`: Maximum requests per minute\n- `X-RateLimit-Remaining`: Remaining requests in current window\n- `X-RateLimit-Reset`: Unix timestamp when the window resets\n\n## Endpoints\n\n### GET /api/v2/instances\n\nList all cloud instances managed by TechCorp.\n\n**Parameters:**\n- `region` (optional): Filter by region (e.g., `us-east-1`, `eu-west-1`)\n- `status` (optional): Filter by status (`running`, `stopped`, `terminated`)\n- `page` (optional, default: 1): Page number for pagination\n- `per_page` (optional, default: 50, max: 200): Results per page\n\n**Response:**\n```json\n{\n  \"data\": [\n    {\n      \"id\": \"inst_abc123\",\n      \"name\": \"web-server-prod-01\",\n      \"type\": \"c5.2xlarge\",\n      \"region\": \"us-east-1\",\n      \"status\": \"running\",\n      \"monthly_cost\": 245.50,\n      \"cpu_utilization\": 0.42,\n      \"created_at\": \"2026-01-15T08:30:00Z\"\n    }\n  ],\n  \"pagination\": {\n    \"page\": 1,\n    \"per_page\": 50,\n    \"total\": 234,\n    \"total_pages\": 5\n  }\n}\n```\n\n### POST /api/v2/instances/{id}/optimize\n\nRun cost optimization analysis on a specific instance.\n\n**Response:**\n```json\n{\n  \"instance_id\": \"inst_abc123\",\n  \"current_cost\": 245.50,\n  \"recommended_type\": \"c5.xlarge\",\n  \"projected_cost\": 122.75,\n  \"s",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.1332554481870507,
+          "retrieval_method": "vector"
+        }
+      ],
+      "metadata": {
+        "pattern": "naive",
+        "model": "openai/gpt-4o-mini",
+        "embedding_model": "openai/text-embedding-3-small",
+        "tokens_used": 2245,
+        "latency_ms": 3984.984250040725,
+        "cost_usd": 0.0004065,
+        "retrieval_count": 5,
+        "final_chunk_count": 5,
+        "steps": [
+          {
+            "step": "preprocess",
+            "latency_ms": 0.0006658956408500671,
+            "detail": null
+          },
+          {
+            "step": "retrieve",
+            "latency_ms": 1.1333751026540995,
+            "detail": "5 chunks"
+          },
+          {
+            "step": "postprocess",
+            "latency_ms": 0.0012498348951339722,
+            "detail": "5\u21925 chunks"
+          },
+          {
+            "step": "generate",
+            "latency_ms": 3983.7936668191105,
+            "detail": "2090+155 tokens"
+          },
+          {
+            "step": "validate",
+            "latency_ms": 0.0030829105526208878,
+            "detail": null
+          }
+        ]
+      }
+    },
+    "parent_child": {
+      "answer": "At TechCorp, if you're not satisfied with your purchase, they offer a comprehensive refund policy. Refunds are available for products purchased within the last 30 days, provided the item is unused, in its original packaging, and in the same condition that you received it. Digital products are eligible for a refund within 14 days of purchase if less than 20% of the content has been accessed.\n\nTo initiate a refund, you should contact their support team at support@techcorp.com with your order number and reason for the return. The team will review your request within 2 business days and provide a return shipping label if applicable. Once the returned item is received, refunds are processed within 5-7 business days and credited to the original payment method.\n\nThere are exceptions where items are not eligible for refund, including customized or personalized products, clearance items marked as \"Final Sale,\" gift cards, products damaged by the customer, and items purchased more than 30 days ago. In some cases, partial refunds may be offered for items returned after 30 days but within 60 days, products with minor damage, or opened software with more than 20% usage.",
+      "sources": [
+        {
+          "id": "sample_docs/refund_policy.md:3edf60b5",
+          "document_id": "sample_docs/refund_policy.md",
+          "content": "# Refund Policy\n\n## Overview\n\nAt TechCorp, we stand behind our products. If you're not satisfied with your purchase, we offer a comprehensive refund policy to ensure your peace of mind.\n\n## Eligibility\n\nRefunds are available for products purchased within the last 30 days. To be eligible for a refund, the item must be unused, in its original packaging, and in the same condition that you received it. Digital products (software licenses, subscriptions) are eligible for refund within 14 days of purchase if less than 20% of the content has been accessed.\n\n## Process\n\nTo initiate a refund, contact our support team at support@techcorp.com with your order number and reason for the return. Our team will review your request within 2 business days and provide a return shipping label if applicable.\n\nOnce we receive the returned item, refunds are processed within 5-7 business days. The refund will be credited to the original payment method. For credit card payments, please allow an additional 3-5 business days for the refund to appear on your statement.\n\n## Exceptions\n\nThe following items are not eligible for refund:\n- Customized or personalized products\n- Clearance items marked as \"Final Sale\"\n- Gift cards and store credit\n- Products damaged by the customer\n- Items purchased more than 30 days ago\n\n## Partial Refunds\n\nIn some cases, we may offer a partial refund:\n- Items returned after 30 days but within 60 days receive a 75% refund\n- Products with minor damage may receive a 50-90% refund depending on condition\n- Opened software with more than 20% usage receives a prorated refund\n\n## Contact\n\nFor questions about our refund policy, please contact:\n- Email: support@techcorp.com\n- Phone: 1-800-TECHCORP (1-800-832-4267)\n- Live Chat: Available Monday-Friday, 9AM-6PM EST\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.6418887539872182,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/security_guide.md:9874ddb6",
+          "document_id": "sample_docs/security_guide.md",
+          "content": " **Lessons Learned:** Post-incident review within 48 hours, published to affected customers\n\n### Security Contact\n\nReport security vulnerabilities to security@techcorp.com. We operate a bug bounty program with rewards up to $50,000 for critical vulnerabilities. We commit to acknowledging reports within 24 hours and providing a resolution timeline within 72 hours.\n\n## Network Security\n\n- DDoS protection via Cloudflare Enterprise\n- Web Application Firewall (WAF) with custom rule sets\n- Network segmentation between production, staging, and development environments\n- VPN access required for all internal systems\n- Regular penetration testing by NCC Group (quarterly)\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 1,
+            "overlap_tokens": 50
+          },
+          "score": 0.20007657041211174,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/security_guide.md:af53fffb",
+          "document_id": "sample_docs/security_guide.md",
+          "content": "# TechCorp Security Guide\n\n## Data Protection\n\nTechCorp implements multiple layers of security to protect your data:\n\n### Encryption\n\n- **At rest:** All data is encrypted using AES-256-GCM. Encryption keys are managed by AWS KMS with automatic key rotation every 90 days.\n- **In transit:** All connections use TLS 1.3. We enforce HSTS with a minimum age of one year. Certificate pinning is available for mobile applications.\n- **Application-level:** Sensitive fields (API keys, passwords, PII) are additionally encrypted with envelope encryption before storage.\n\n### Access Control\n\nTechCorp uses a Role-Based Access Control (RBAC) model with the following default roles:\n\n| Role | Permissions |\n|------|------------|\n| Viewer | Read-only access to dashboards and reports |\n| Operator | Viewer + ability to manage instances and alerts |\n| Admin | Operator + user management and billing |\n| Owner | Full access including API key management and account deletion |\n\nCustom roles can be created with granular permissions. All role changes are logged in the audit trail.\n\n### Audit Logging\n\nEvery action in the TechCorp Platform is logged with:\n- Timestamp (UTC)\n- User ID and IP address\n- Action performed\n- Resource affected\n- Result (success/failure)\n\nAudit logs are retained for 2 years and can be exported via the API or downloaded from the Dashboard. Logs are immutable and tamper-evident using cryptographic chaining.\n\n## Compliance\n\nTechCorp maintains the following certifications and compliance standards:\n\n- **SOC 2 Type II** \u2014 Audited annually by Deloitte\n- **ISO 27001** \u2014 Information security management\n- **GDPR** \u2014 Full compliance for EU data subjects\n- **HIPAA** \u2014 Available for healthcare customers (requires BAA)\n- **PCI DSS Level 1** \u2014 For customers processing payment data\n\n## Incident Response\n\nOur incident response process follows the NIST framework:\n\n1. **Detection:** Automated monitoring with <5 minute detection time for critical issues\n2. **Containment:** Affected systems are isolated within 15 minutes\n3. **Eradication:** Root cause analysis and remediation within 4 hours\n4. **Recovery:** Service restoration with full data integrity verification\n5. **Lessons Learned:** Post-incident review within 48 hours, published to affected customers\n\n### Security Contact\n\nReport security vulnerabilities to security@techcorp.com. We operate a bug bounty program with rewards up to $50,000 for critical vulnerabilities",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.17868235373322158,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/product_specs.md:db3f2e9e",
+          "document_id": "sample_docs/product_specs.md",
+          "content": "# Product Specifications\n\n## TechCorp Pro Laptop (Model TC-2026)\n\n### Hardware Specifications\n\n| Component | Specification |\n|-----------|--------------|\n| Processor | Intel Core i9-14900K, 24 cores, 5.8GHz boost |\n| Memory | 64GB DDR5-5600 (2x32GB, expandable to 128GB) |\n| Storage | 2TB NVMe PCIe 5.0 SSD |\n| Display | 16\" Mini-LED, 3456x2234, 120Hz, P3 wide color |\n| Graphics | NVIDIA RTX 5090 Mobile, 16GB GDDR7 |\n| Battery | 100Wh lithium-polymer, up to 18 hours |\n| Weight | 2.14 kg (4.72 lbs) |\n| Ports | 3x Thunderbolt 5, 1x HDMI 2.1, 1x SD card reader, 1x 3.5mm audio |\n\n### Software\n\nThe TC-2026 ships with TechCorp OS 5.0, which includes:\n- Built-in AI assistant powered by on-device LLM\n- Automatic cloud backup with 1TB included storage\n- TechCorp Suite (word processor, spreadsheet, presentation)\n- Security suite with real-time threat protection\n\n### Connectivity\n\n- WiFi 7 (802.11be) with tri-band support\n- Bluetooth 5.4\n- Optional 5G cellular module (add $199)\n- NFC for quick device pairing\n\n### Warranty\n\nAll TC-2026 units come with a standard 2-year warranty covering manufacturing defects. Extended warranty options:\n- 3-year coverage: $149\n- 5-year coverage with accidental damage: $349\n- Enterprise fleet pricing available for orders of 50+ units\n\n### Performance Benchmarks\n\nIn independent testing (TechReview Labs, March 2026):\n- Cinebench R24: Multi-core score of 42,500\n- 3DMark Time Spy: 28,400\n- PCMark 10: 8,950\n- Battery life (video playback): 16.5 hours\n- Battery life (web browsing): 14.2 hours\n- SSD sequential read: 14,500 MB/s\n- SSD sequential write: 12,800 MB/s\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.13720917369552546,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/api_reference.md:594bd5f7",
+          "document_id": "sample_docs/api_reference.md",
+          "content": "# TechCorp API Reference\n\n## Authentication\n\nAll API requests require authentication via Bearer token. Include your API key in the Authorization header:\n\n```\nAuthorization: Bearer tc_live_abc123xyz\n```\n\nAPI keys can be generated from the TechCorp Dashboard under Settings > API Keys. Each key has configurable permissions and rate limits.\n\n## Rate Limits\n\n| Plan | Requests/minute | Requests/day |\n|------|----------------|--------------|\n| Free | 60 | 1,000 |\n| Pro | 600 | 50,000 |\n| Enterprise | 6,000 | Unlimited |\n\nRate limit headers are included in every response:\n- `X-RateLimit-Limit`: Maximum requests per minute\n- `X-RateLimit-Remaining`: Remaining requests in current window\n- `X-RateLimit-Reset`: Unix timestamp when the window resets\n\n## Endpoints\n\n### GET /api/v2/instances\n\nList all cloud instances managed by TechCorp.\n\n**Parameters:**\n- `region` (optional): Filter by region (e.g., `us-east-1`, `eu-west-1`)\n- `status` (optional): Filter by status (`running`, `stopped`, `terminated`)\n- `page` (optional, default: 1): Page number for pagination\n- `per_page` (optional, default: 50, max: 200): Results per page\n\n**Response:**\n```json\n{\n  \"data\": [\n    {\n      \"id\": \"inst_abc123\",\n      \"name\": \"web-server-prod-01\",\n      \"type\": \"c5.2xlarge\",\n      \"region\": \"us-east-1\",\n      \"status\": \"running\",\n      \"monthly_cost\": 245.50,\n      \"cpu_utilization\": 0.42,\n      \"created_at\": \"2026-01-15T08:30:00Z\"\n    }\n  ],\n  \"pagination\": {\n    \"page\": 1,\n    \"per_page\": 50,\n    \"total\": 234,\n    \"total_pages\": 5\n  }\n}\n```\n\n### POST /api/v2/instances/{id}/optimize\n\nRun cost optimization analysis on a specific instance.\n\n**Response:**\n```json\n{\n  \"instance_id\": \"inst_abc123\",\n  \"current_cost\": 245.50,\n  \"recommended_type\": \"c5.xlarge\",\n  \"projected_cost\": 122.75,\n  \"s",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.1332554481870507,
+          "retrieval_method": "vector"
+        }
+      ],
+      "metadata": {
+        "pattern": "parent_child",
+        "model": "openai/gpt-4o-mini",
+        "embedding_model": "openai/text-embedding-3-small",
+        "tokens_used": 2324,
+        "latency_ms": 5407.588375033811,
+        "cost_usd": 0.0004539,
+        "retrieval_count": 5,
+        "final_chunk_count": 5,
+        "steps": [
+          {
+            "step": "preprocess",
+            "latency_ms": 0.001375097781419754,
+            "detail": null
+          },
+          {
+            "step": "retrieve",
+            "latency_ms": 1.3454998843371868,
+            "detail": "5 chunks"
+          },
+          {
+            "step": "postprocess",
+            "latency_ms": 0.02050003968179226,
+            "detail": "5\u21925 chunks"
+          },
+          {
+            "step": "generate",
+            "latency_ms": 5406.182000180706,
+            "detail": "2090+234 tokens"
+          },
+          {
+            "step": "validate",
+            "latency_ms": 0.004209112375974655,
+            "detail": null
+          }
+        ]
+      }
+    },
+    "query_decomposition": {
+      "answer": "At TechCorp, refunds are available for products purchased within the last 30 days. To be eligible for a refund, the item must be unused, in its original packaging, and in the same condition that you received it. Digital products are eligible for a refund within 14 days of purchase if less than 20% of the content has been accessed. \n\nTo initiate a refund, contact the support team with your order number and reason for the return. Refund requests are reviewed within 2 business days, and if applicable, a return shipping label will be provided. \n\nOnce the returned item is received, refunds are processed within 5-7 business days and credited to the original payment method. For credit card payments, an additional 3-5 business days may be required for the refund to appear on your statement.\n\nExceptions to the refund policy include customized or personalized products, clearance items marked as \"Final Sale,\" gift cards and store credit, products damaged by the customer, and items purchased more than 30 days ago.\n\nPartial refunds may be offered in certain cases, such as items returned after 30 days but within 60 days (75% refund) or products with minor damage (50-90% refund depending on condition). Opened software with more than 20% usage may receive a prorated refund.",
+      "sources": [
+        {
+          "id": "sample_docs/refund_policy.md:3edf60b5",
+          "document_id": "sample_docs/refund_policy.md",
+          "content": "# Refund Policy\n\n## Overview\n\nAt TechCorp, we stand behind our products. If you're not satisfied with your purchase, we offer a comprehensive refund policy to ensure your peace of mind.\n\n## Eligibility\n\nRefunds are available for products purchased within the last 30 days. To be eligible for a refund, the item must be unused, in its original packaging, and in the same condition that you received it. Digital products (software licenses, subscriptions) are eligible for refund within 14 days of purchase if less than 20% of the content has been accessed.\n\n## Process\n\nTo initiate a refund, contact our support team at support@techcorp.com with your order number and reason for the return. Our team will review your request within 2 business days and provide a return shipping label if applicable.\n\nOnce we receive the returned item, refunds are processed within 5-7 business days. The refund will be credited to the original payment method. For credit card payments, please allow an additional 3-5 business days for the refund to appear on your statement.\n\n## Exceptions\n\nThe following items are not eligible for refund:\n- Customized or personalized products\n- Clearance items marked as \"Final Sale\"\n- Gift cards and store credit\n- Products damaged by the customer\n- Items purchased more than 30 days ago\n\n## Partial Refunds\n\nIn some cases, we may offer a partial refund:\n- Items returned after 30 days but within 60 days receive a 75% refund\n- Products with minor damage may receive a 50-90% refund depending on condition\n- Opened software with more than 20% usage receives a prorated refund\n\n## Contact\n\nFor questions about our refund policy, please contact:\n- Email: support@techcorp.com\n- Phone: 1-800-TECHCORP (1-800-832-4267)\n- Live Chat: Available Monday-Friday, 9AM-6PM EST\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.6418887539872182,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/security_guide.md:9874ddb6",
+          "document_id": "sample_docs/security_guide.md",
+          "content": " **Lessons Learned:** Post-incident review within 48 hours, published to affected customers\n\n### Security Contact\n\nReport security vulnerabilities to security@techcorp.com. We operate a bug bounty program with rewards up to $50,000 for critical vulnerabilities. We commit to acknowledging reports within 24 hours and providing a resolution timeline within 72 hours.\n\n## Network Security\n\n- DDoS protection via Cloudflare Enterprise\n- Web Application Firewall (WAF) with custom rule sets\n- Network segmentation between production, staging, and development environments\n- VPN access required for all internal systems\n- Regular penetration testing by NCC Group (quarterly)\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 1,
+            "overlap_tokens": 50
+          },
+          "score": 0.20007657041211174,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/security_guide.md:af53fffb",
+          "document_id": "sample_docs/security_guide.md",
+          "content": "# TechCorp Security Guide\n\n## Data Protection\n\nTechCorp implements multiple layers of security to protect your data:\n\n### Encryption\n\n- **At rest:** All data is encrypted using AES-256-GCM. Encryption keys are managed by AWS KMS with automatic key rotation every 90 days.\n- **In transit:** All connections use TLS 1.3. We enforce HSTS with a minimum age of one year. Certificate pinning is available for mobile applications.\n- **Application-level:** Sensitive fields (API keys, passwords, PII) are additionally encrypted with envelope encryption before storage.\n\n### Access Control\n\nTechCorp uses a Role-Based Access Control (RBAC) model with the following default roles:\n\n| Role | Permissions |\n|------|------------|\n| Viewer | Read-only access to dashboards and reports |\n| Operator | Viewer + ability to manage instances and alerts |\n| Admin | Operator + user management and billing |\n| Owner | Full access including API key management and account deletion |\n\nCustom roles can be created with granular permissions. All role changes are logged in the audit trail.\n\n### Audit Logging\n\nEvery action in the TechCorp Platform is logged with:\n- Timestamp (UTC)\n- User ID and IP address\n- Action performed\n- Resource affected\n- Result (success/failure)\n\nAudit logs are retained for 2 years and can be exported via the API or downloaded from the Dashboard. Logs are immutable and tamper-evident using cryptographic chaining.\n\n## Compliance\n\nTechCorp maintains the following certifications and compliance standards:\n\n- **SOC 2 Type II** \u2014 Audited annually by Deloitte\n- **ISO 27001** \u2014 Information security management\n- **GDPR** \u2014 Full compliance for EU data subjects\n- **HIPAA** \u2014 Available for healthcare customers (requires BAA)\n- **PCI DSS Level 1** \u2014 For customers processing payment data\n\n## Incident Response\n\nOur incident response process follows the NIST framework:\n\n1. **Detection:** Automated monitoring with <5 minute detection time for critical issues\n2. **Containment:** Affected systems are isolated within 15 minutes\n3. **Eradication:** Root cause analysis and remediation within 4 hours\n4. **Recovery:** Service restoration with full data integrity verification\n5. **Lessons Learned:** Post-incident review within 48 hours, published to affected customers\n\n### Security Contact\n\nReport security vulnerabilities to security@techcorp.com. We operate a bug bounty program with rewards up to $50,000 for critical vulnerabilities",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.17868235373322158,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/product_specs.md:db3f2e9e",
+          "document_id": "sample_docs/product_specs.md",
+          "content": "# Product Specifications\n\n## TechCorp Pro Laptop (Model TC-2026)\n\n### Hardware Specifications\n\n| Component | Specification |\n|-----------|--------------|\n| Processor | Intel Core i9-14900K, 24 cores, 5.8GHz boost |\n| Memory | 64GB DDR5-5600 (2x32GB, expandable to 128GB) |\n| Storage | 2TB NVMe PCIe 5.0 SSD |\n| Display | 16\" Mini-LED, 3456x2234, 120Hz, P3 wide color |\n| Graphics | NVIDIA RTX 5090 Mobile, 16GB GDDR7 |\n| Battery | 100Wh lithium-polymer, up to 18 hours |\n| Weight | 2.14 kg (4.72 lbs) |\n| Ports | 3x Thunderbolt 5, 1x HDMI 2.1, 1x SD card reader, 1x 3.5mm audio |\n\n### Software\n\nThe TC-2026 ships with TechCorp OS 5.0, which includes:\n- Built-in AI assistant powered by on-device LLM\n- Automatic cloud backup with 1TB included storage\n- TechCorp Suite (word processor, spreadsheet, presentation)\n- Security suite with real-time threat protection\n\n### Connectivity\n\n- WiFi 7 (802.11be) with tri-band support\n- Bluetooth 5.4\n- Optional 5G cellular module (add $199)\n- NFC for quick device pairing\n\n### Warranty\n\nAll TC-2026 units come with a standard 2-year warranty covering manufacturing defects. Extended warranty options:\n- 3-year coverage: $149\n- 5-year coverage with accidental damage: $349\n- Enterprise fleet pricing available for orders of 50+ units\n\n### Performance Benchmarks\n\nIn independent testing (TechReview Labs, March 2026):\n- Cinebench R24: Multi-core score of 42,500\n- 3DMark Time Spy: 28,400\n- PCMark 10: 8,950\n- Battery life (video playback): 16.5 hours\n- Battery life (web browsing): 14.2 hours\n- SSD sequential read: 14,500 MB/s\n- SSD sequential write: 12,800 MB/s\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.13720917369552546,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/api_reference.md:594bd5f7",
+          "document_id": "sample_docs/api_reference.md",
+          "content": "# TechCorp API Reference\n\n## Authentication\n\nAll API requests require authentication via Bearer token. Include your API key in the Authorization header:\n\n```\nAuthorization: Bearer tc_live_abc123xyz\n```\n\nAPI keys can be generated from the TechCorp Dashboard under Settings > API Keys. Each key has configurable permissions and rate limits.\n\n## Rate Limits\n\n| Plan | Requests/minute | Requests/day |\n|------|----------------|--------------|\n| Free | 60 | 1,000 |\n| Pro | 600 | 50,000 |\n| Enterprise | 6,000 | Unlimited |\n\nRate limit headers are included in every response:\n- `X-RateLimit-Limit`: Maximum requests per minute\n- `X-RateLimit-Remaining`: Remaining requests in current window\n- `X-RateLimit-Reset`: Unix timestamp when the window resets\n\n## Endpoints\n\n### GET /api/v2/instances\n\nList all cloud instances managed by TechCorp.\n\n**Parameters:**\n- `region` (optional): Filter by region (e.g., `us-east-1`, `eu-west-1`)\n- `status` (optional): Filter by status (`running`, `stopped`, `terminated`)\n- `page` (optional, default: 1): Page number for pagination\n- `per_page` (optional, default: 50, max: 200): Results per page\n\n**Response:**\n```json\n{\n  \"data\": [\n    {\n      \"id\": \"inst_abc123\",\n      \"name\": \"web-server-prod-01\",\n      \"type\": \"c5.2xlarge\",\n      \"region\": \"us-east-1\",\n      \"status\": \"running\",\n      \"monthly_cost\": 245.50,\n      \"cpu_utilization\": 0.42,\n      \"created_at\": \"2026-01-15T08:30:00Z\"\n    }\n  ],\n  \"pagination\": {\n    \"page\": 1,\n    \"per_page\": 50,\n    \"total\": 234,\n    \"total_pages\": 5\n  }\n}\n```\n\n### POST /api/v2/instances/{id}/optimize\n\nRun cost optimization analysis on a specific instance.\n\n**Response:**\n```json\n{\n  \"instance_id\": \"inst_abc123\",\n  \"current_cost\": 245.50,\n  \"recommended_type\": \"c5.xlarge\",\n  \"projected_cost\": 122.75,\n  \"s",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.1332554481870507,
+          "retrieval_method": "vector"
+        }
+      ],
+      "metadata": {
+        "pattern": "query_decomposition",
+        "model": "openai/gpt-4o-mini",
+        "embedding_model": "openai/text-embedding-3-small",
+        "tokens_used": 2354,
+        "latency_ms": 8146.898417035118,
+        "cost_usd": 0.0004719,
+        "retrieval_count": 5,
+        "final_chunk_count": 5,
+        "steps": [
+          {
+            "step": "preprocess",
+            "latency_ms": 1135.9895837958902,
+            "detail": null
+          },
+          {
+            "step": "retrieve",
+            "latency_ms": 1.4063750859349966,
+            "detail": "5 chunks"
+          },
+          {
+            "step": "postprocess",
+            "latency_ms": 0.0010828953236341476,
+            "detail": "5\u21925 chunks"
+          },
+          {
+            "step": "generate",
+            "latency_ms": 7009.467500029132,
+            "detail": "2090+264 tokens"
+          },
+          {
+            "step": "validate",
+            "latency_ms": 0.0025830231606960297,
+            "detail": null
+          }
+        ]
+      }
+    },
+    "reranking": {
+      "answer": "At TechCorp, refunds are available for products purchased within the last 30 days. To be eligible for a refund, the item must be unused, in its original packaging, and in the same condition that you received it. Digital products are eligible for a refund within 14 days of purchase if less than 20% of the content has been accessed. \n\nTo initiate a refund, you need to contact the support team at support@techcorp.com with your order number and reason for the return. The team will review your request within 2 business days and provide a return shipping label if applicable. Once the returned item is received, refunds are processed within 5-7 business days and credited to the original payment method.\n\nExceptions to the refund policy include customized or personalized products, clearance items marked as \"Final Sale,\" gift cards, store credit, products damaged by the customer, and items purchased more than 30 days ago.\n\nIn some cases, partial refunds may be offered for items returned after 30 days but within 60 days (75% refund), products with minor damage (50-90% refund depending on condition), or opened software with more than 20% usage (prorated refund).",
+      "sources": [
+        {
+          "id": "sample_docs/refund_policy.md:3edf60b5",
+          "document_id": "sample_docs/refund_policy.md",
+          "content": "# Refund Policy\n\n## Overview\n\nAt TechCorp, we stand behind our products. If you're not satisfied with your purchase, we offer a comprehensive refund policy to ensure your peace of mind.\n\n## Eligibility\n\nRefunds are available for products purchased within the last 30 days. To be eligible for a refund, the item must be unused, in its original packaging, and in the same condition that you received it. Digital products (software licenses, subscriptions) are eligible for refund within 14 days of purchase if less than 20% of the content has been accessed.\n\n## Process\n\nTo initiate a refund, contact our support team at support@techcorp.com with your order number and reason for the return. Our team will review your request within 2 business days and provide a return shipping label if applicable.\n\nOnce we receive the returned item, refunds are processed within 5-7 business days. The refund will be credited to the original payment method. For credit card payments, please allow an additional 3-5 business days for the refund to appear on your statement.\n\n## Exceptions\n\nThe following items are not eligible for refund:\n- Customized or personalized products\n- Clearance items marked as \"Final Sale\"\n- Gift cards and store credit\n- Products damaged by the customer\n- Items purchased more than 30 days ago\n\n## Partial Refunds\n\nIn some cases, we may offer a partial refund:\n- Items returned after 30 days but within 60 days receive a 75% refund\n- Products with minor damage may receive a 50-90% refund depending on condition\n- Opened software with more than 20% usage receives a prorated refund\n\n## Contact\n\nFor questions about our refund policy, please contact:\n- Email: support@techcorp.com\n- Phone: 1-800-TECHCORP (1-800-832-4267)\n- Live Chat: Available Monday-Friday, 9AM-6PM EST\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 1.0,
+          "retrieval_method": "reranked"
+        },
+        {
+          "id": "sample_docs/security_guide.md:9874ddb6",
+          "document_id": "sample_docs/security_guide.md",
+          "content": " **Lessons Learned:** Post-incident review within 48 hours, published to affected customers\n\n### Security Contact\n\nReport security vulnerabilities to security@techcorp.com. We operate a bug bounty program with rewards up to $50,000 for critical vulnerabilities. We commit to acknowledging reports within 24 hours and providing a resolution timeline within 72 hours.\n\n## Network Security\n\n- DDoS protection via Cloudflare Enterprise\n- Web Application Firewall (WAF) with custom rule sets\n- Network segmentation between production, staging, and development environments\n- VPN access required for all internal systems\n- Regular penetration testing by NCC Group (quarterly)\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 1,
+            "overlap_tokens": 50
+          },
+          "score": 0.0,
+          "retrieval_method": "reranked"
+        },
+        {
+          "id": "sample_docs/security_guide.md:af53fffb",
+          "document_id": "sample_docs/security_guide.md",
+          "content": "# TechCorp Security Guide\n\n## Data Protection\n\nTechCorp implements multiple layers of security to protect your data:\n\n### Encryption\n\n- **At rest:** All data is encrypted using AES-256-GCM. Encryption keys are managed by AWS KMS with automatic key rotation every 90 days.\n- **In transit:** All connections use TLS 1.3. We enforce HSTS with a minimum age of one year. Certificate pinning is available for mobile applications.\n- **Application-level:** Sensitive fields (API keys, passwords, PII) are additionally encrypted with envelope encryption before storage.\n\n### Access Control\n\nTechCorp uses a Role-Based Access Control (RBAC) model with the following default roles:\n\n| Role | Permissions |\n|------|------------|\n| Viewer | Read-only access to dashboards and reports |\n| Operator | Viewer + ability to manage instances and alerts |\n| Admin | Operator + user management and billing |\n| Owner | Full access including API key management and account deletion |\n\nCustom roles can be created with granular permissions. All role changes are logged in the audit trail.\n\n### Audit Logging\n\nEvery action in the TechCorp Platform is logged with:\n- Timestamp (UTC)\n- User ID and IP address\n- Action performed\n- Resource affected\n- Result (success/failure)\n\nAudit logs are retained for 2 years and can be exported via the API or downloaded from the Dashboard. Logs are immutable and tamper-evident using cryptographic chaining.\n\n## Compliance\n\nTechCorp maintains the following certifications and compliance standards:\n\n- **SOC 2 Type II** \u2014 Audited annually by Deloitte\n- **ISO 27001** \u2014 Information security management\n- **GDPR** \u2014 Full compliance for EU data subjects\n- **HIPAA** \u2014 Available for healthcare customers (requires BAA)\n- **PCI DSS Level 1** \u2014 For customers processing payment data\n\n## Incident Response\n\nOur incident response process follows the NIST framework:\n\n1. **Detection:** Automated monitoring with <5 minute detection time for critical issues\n2. **Containment:** Affected systems are isolated within 15 minutes\n3. **Eradication:** Root cause analysis and remediation within 4 hours\n4. **Recovery:** Service restoration with full data integrity verification\n5. **Lessons Learned:** Post-incident review within 48 hours, published to affected customers\n\n### Security Contact\n\nReport security vulnerabilities to security@techcorp.com. We operate a bug bounty program with rewards up to $50,000 for critical vulnerabilities",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.0,
+          "retrieval_method": "reranked"
+        },
+        {
+          "id": "sample_docs/product_specs.md:db3f2e9e",
+          "document_id": "sample_docs/product_specs.md",
+          "content": "# Product Specifications\n\n## TechCorp Pro Laptop (Model TC-2026)\n\n### Hardware Specifications\n\n| Component | Specification |\n|-----------|--------------|\n| Processor | Intel Core i9-14900K, 24 cores, 5.8GHz boost |\n| Memory | 64GB DDR5-5600 (2x32GB, expandable to 128GB) |\n| Storage | 2TB NVMe PCIe 5.0 SSD |\n| Display | 16\" Mini-LED, 3456x2234, 120Hz, P3 wide color |\n| Graphics | NVIDIA RTX 5090 Mobile, 16GB GDDR7 |\n| Battery | 100Wh lithium-polymer, up to 18 hours |\n| Weight | 2.14 kg (4.72 lbs) |\n| Ports | 3x Thunderbolt 5, 1x HDMI 2.1, 1x SD card reader, 1x 3.5mm audio |\n\n### Software\n\nThe TC-2026 ships with TechCorp OS 5.0, which includes:\n- Built-in AI assistant powered by on-device LLM\n- Automatic cloud backup with 1TB included storage\n- TechCorp Suite (word processor, spreadsheet, presentation)\n- Security suite with real-time threat protection\n\n### Connectivity\n\n- WiFi 7 (802.11be) with tri-band support\n- Bluetooth 5.4\n- Optional 5G cellular module (add $199)\n- NFC for quick device pairing\n\n### Warranty\n\nAll TC-2026 units come with a standard 2-year warranty covering manufacturing defects. Extended warranty options:\n- 3-year coverage: $149\n- 5-year coverage with accidental damage: $349\n- Enterprise fleet pricing available for orders of 50+ units\n\n### Performance Benchmarks\n\nIn independent testing (TechReview Labs, March 2026):\n- Cinebench R24: Multi-core score of 42,500\n- 3DMark Time Spy: 28,400\n- PCMark 10: 8,950\n- Battery life (video playback): 16.5 hours\n- Battery life (web browsing): 14.2 hours\n- SSD sequential read: 14,500 MB/s\n- SSD sequential write: 12,800 MB/s\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.0,
+          "retrieval_method": "reranked"
+        },
+        {
+          "id": "sample_docs/api_reference.md:594bd5f7",
+          "document_id": "sample_docs/api_reference.md",
+          "content": "# TechCorp API Reference\n\n## Authentication\n\nAll API requests require authentication via Bearer token. Include your API key in the Authorization header:\n\n```\nAuthorization: Bearer tc_live_abc123xyz\n```\n\nAPI keys can be generated from the TechCorp Dashboard under Settings > API Keys. Each key has configurable permissions and rate limits.\n\n## Rate Limits\n\n| Plan | Requests/minute | Requests/day |\n|------|----------------|--------------|\n| Free | 60 | 1,000 |\n| Pro | 600 | 50,000 |\n| Enterprise | 6,000 | Unlimited |\n\nRate limit headers are included in every response:\n- `X-RateLimit-Limit`: Maximum requests per minute\n- `X-RateLimit-Remaining`: Remaining requests in current window\n- `X-RateLimit-Reset`: Unix timestamp when the window resets\n\n## Endpoints\n\n### GET /api/v2/instances\n\nList all cloud instances managed by TechCorp.\n\n**Parameters:**\n- `region` (optional): Filter by region (e.g., `us-east-1`, `eu-west-1`)\n- `status` (optional): Filter by status (`running`, `stopped`, `terminated`)\n- `page` (optional, default: 1): Page number for pagination\n- `per_page` (optional, default: 50, max: 200): Results per page\n\n**Response:**\n```json\n{\n  \"data\": [\n    {\n      \"id\": \"inst_abc123\",\n      \"name\": \"web-server-prod-01\",\n      \"type\": \"c5.2xlarge\",\n      \"region\": \"us-east-1\",\n      \"status\": \"running\",\n      \"monthly_cost\": 245.50,\n      \"cpu_utilization\": 0.42,\n      \"created_at\": \"2026-01-15T08:30:00Z\"\n    }\n  ],\n  \"pagination\": {\n    \"page\": 1,\n    \"per_page\": 50,\n    \"total\": 234,\n    \"total_pages\": 5\n  }\n}\n```\n\n### POST /api/v2/instances/{id}/optimize\n\nRun cost optimization analysis on a specific instance.\n\n**Response:**\n```json\n{\n  \"instance_id\": \"inst_abc123\",\n  \"current_cost\": 245.50,\n  \"recommended_type\": \"c5.xlarge\",\n  \"projected_cost\": 122.75,\n  \"s",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.0,
+          "retrieval_method": "reranked"
+        }
+      ],
+      "metadata": {
+        "pattern": "reranking",
+        "model": "openai/gpt-4o-mini",
+        "embedding_model": "openai/text-embedding-3-small",
+        "tokens_used": 2332,
+        "latency_ms": 9138.65908398293,
+        "cost_usd": 0.0004587,
+        "retrieval_count": 8,
+        "final_chunk_count": 5,
+        "steps": [
+          {
+            "step": "preprocess",
+            "latency_ms": 0.0010409858077764511,
+            "detail": null
+          },
+          {
+            "step": "retrieve",
+            "latency_ms": 1.6055000014603138,
+            "detail": "8 chunks"
+          },
+          {
+            "step": "postprocess",
+            "latency_ms": 3940.8883748110384,
+            "detail": "8\u21925 chunks"
+          },
+          {
+            "step": "generate",
+            "latency_ms": 5196.136959129944,
+            "detail": "2090+242 tokens"
+          },
+          {
+            "step": "validate",
+            "latency_ms": 0.0035408884286880493,
+            "detail": null
+          }
+        ]
+      }
+    },
+    "self_correcting": {
+      "answer": "At TechCorp, the refund policy states that refunds are available for products purchased within the last 30 days, provided the item is unused, in its original packaging, and in the same condition that it was received. Digital products are eligible for a refund within 14 days of purchase if less than 20% of the content has been accessed. \n\nTo initiate a refund, customers should contact the support team with their order number and reason for the return. Refund requests will be reviewed within 2 business days, and if applicable, a return shipping label will be provided. Once the returned item is received, refunds are processed within 5-7 business days and credited to the original payment method. \n\nExceptions to the refund policy include customized or personalized products, clearance items marked as \"Final Sale,\" gift cards and store credit, products damaged by the customer, and items purchased more than 30 days ago. In some cases, partial refunds may be offered for items returned after 30 days but within 60 days or for products with minor damage.",
+      "sources": [
+        {
+          "id": "sample_docs/refund_policy.md:3edf60b5",
+          "document_id": "sample_docs/refund_policy.md",
+          "content": "# Refund Policy\n\n## Overview\n\nAt TechCorp, we stand behind our products. If you're not satisfied with your purchase, we offer a comprehensive refund policy to ensure your peace of mind.\n\n## Eligibility\n\nRefunds are available for products purchased within the last 30 days. To be eligible for a refund, the item must be unused, in its original packaging, and in the same condition that you received it. Digital products (software licenses, subscriptions) are eligible for refund within 14 days of purchase if less than 20% of the content has been accessed.\n\n## Process\n\nTo initiate a refund, contact our support team at support@techcorp.com with your order number and reason for the return. Our team will review your request within 2 business days and provide a return shipping label if applicable.\n\nOnce we receive the returned item, refunds are processed within 5-7 business days. The refund will be credited to the original payment method. For credit card payments, please allow an additional 3-5 business days for the refund to appear on your statement.\n\n## Exceptions\n\nThe following items are not eligible for refund:\n- Customized or personalized products\n- Clearance items marked as \"Final Sale\"\n- Gift cards and store credit\n- Products damaged by the customer\n- Items purchased more than 30 days ago\n\n## Partial Refunds\n\nIn some cases, we may offer a partial refund:\n- Items returned after 30 days but within 60 days receive a 75% refund\n- Products with minor damage may receive a 50-90% refund depending on condition\n- Opened software with more than 20% usage receives a prorated refund\n\n## Contact\n\nFor questions about our refund policy, please contact:\n- Email: support@techcorp.com\n- Phone: 1-800-TECHCORP (1-800-832-4267)\n- Live Chat: Available Monday-Friday, 9AM-6PM EST\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.6418887539872182,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/security_guide.md:9874ddb6",
+          "document_id": "sample_docs/security_guide.md",
+          "content": " **Lessons Learned:** Post-incident review within 48 hours, published to affected customers\n\n### Security Contact\n\nReport security vulnerabilities to security@techcorp.com. We operate a bug bounty program with rewards up to $50,000 for critical vulnerabilities. We commit to acknowledging reports within 24 hours and providing a resolution timeline within 72 hours.\n\n## Network Security\n\n- DDoS protection via Cloudflare Enterprise\n- Web Application Firewall (WAF) with custom rule sets\n- Network segmentation between production, staging, and development environments\n- VPN access required for all internal systems\n- Regular penetration testing by NCC Group (quarterly)\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 1,
+            "overlap_tokens": 50
+          },
+          "score": 0.20007657041211174,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/security_guide.md:af53fffb",
+          "document_id": "sample_docs/security_guide.md",
+          "content": "# TechCorp Security Guide\n\n## Data Protection\n\nTechCorp implements multiple layers of security to protect your data:\n\n### Encryption\n\n- **At rest:** All data is encrypted using AES-256-GCM. Encryption keys are managed by AWS KMS with automatic key rotation every 90 days.\n- **In transit:** All connections use TLS 1.3. We enforce HSTS with a minimum age of one year. Certificate pinning is available for mobile applications.\n- **Application-level:** Sensitive fields (API keys, passwords, PII) are additionally encrypted with envelope encryption before storage.\n\n### Access Control\n\nTechCorp uses a Role-Based Access Control (RBAC) model with the following default roles:\n\n| Role | Permissions |\n|------|------------|\n| Viewer | Read-only access to dashboards and reports |\n| Operator | Viewer + ability to manage instances and alerts |\n| Admin | Operator + user management and billing |\n| Owner | Full access including API key management and account deletion |\n\nCustom roles can be created with granular permissions. All role changes are logged in the audit trail.\n\n### Audit Logging\n\nEvery action in the TechCorp Platform is logged with:\n- Timestamp (UTC)\n- User ID and IP address\n- Action performed\n- Resource affected\n- Result (success/failure)\n\nAudit logs are retained for 2 years and can be exported via the API or downloaded from the Dashboard. Logs are immutable and tamper-evident using cryptographic chaining.\n\n## Compliance\n\nTechCorp maintains the following certifications and compliance standards:\n\n- **SOC 2 Type II** \u2014 Audited annually by Deloitte\n- **ISO 27001** \u2014 Information security management\n- **GDPR** \u2014 Full compliance for EU data subjects\n- **HIPAA** \u2014 Available for healthcare customers (requires BAA)\n- **PCI DSS Level 1** \u2014 For customers processing payment data\n\n## Incident Response\n\nOur incident response process follows the NIST framework:\n\n1. **Detection:** Automated monitoring with <5 minute detection time for critical issues\n2. **Containment:** Affected systems are isolated within 15 minutes\n3. **Eradication:** Root cause analysis and remediation within 4 hours\n4. **Recovery:** Service restoration with full data integrity verification\n5. **Lessons Learned:** Post-incident review within 48 hours, published to affected customers\n\n### Security Contact\n\nReport security vulnerabilities to security@techcorp.com. We operate a bug bounty program with rewards up to $50,000 for critical vulnerabilities",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.17868235373322158,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/product_specs.md:db3f2e9e",
+          "document_id": "sample_docs/product_specs.md",
+          "content": "# Product Specifications\n\n## TechCorp Pro Laptop (Model TC-2026)\n\n### Hardware Specifications\n\n| Component | Specification |\n|-----------|--------------|\n| Processor | Intel Core i9-14900K, 24 cores, 5.8GHz boost |\n| Memory | 64GB DDR5-5600 (2x32GB, expandable to 128GB) |\n| Storage | 2TB NVMe PCIe 5.0 SSD |\n| Display | 16\" Mini-LED, 3456x2234, 120Hz, P3 wide color |\n| Graphics | NVIDIA RTX 5090 Mobile, 16GB GDDR7 |\n| Battery | 100Wh lithium-polymer, up to 18 hours |\n| Weight | 2.14 kg (4.72 lbs) |\n| Ports | 3x Thunderbolt 5, 1x HDMI 2.1, 1x SD card reader, 1x 3.5mm audio |\n\n### Software\n\nThe TC-2026 ships with TechCorp OS 5.0, which includes:\n- Built-in AI assistant powered by on-device LLM\n- Automatic cloud backup with 1TB included storage\n- TechCorp Suite (word processor, spreadsheet, presentation)\n- Security suite with real-time threat protection\n\n### Connectivity\n\n- WiFi 7 (802.11be) with tri-band support\n- Bluetooth 5.4\n- Optional 5G cellular module (add $199)\n- NFC for quick device pairing\n\n### Warranty\n\nAll TC-2026 units come with a standard 2-year warranty covering manufacturing defects. Extended warranty options:\n- 3-year coverage: $149\n- 5-year coverage with accidental damage: $349\n- Enterprise fleet pricing available for orders of 50+ units\n\n### Performance Benchmarks\n\nIn independent testing (TechReview Labs, March 2026):\n- Cinebench R24: Multi-core score of 42,500\n- 3DMark Time Spy: 28,400\n- PCMark 10: 8,950\n- Battery life (video playback): 16.5 hours\n- Battery life (web browsing): 14.2 hours\n- SSD sequential read: 14,500 MB/s\n- SSD sequential write: 12,800 MB/s\n",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.13720917369552546,
+          "retrieval_method": "vector"
+        },
+        {
+          "id": "sample_docs/api_reference.md:594bd5f7",
+          "document_id": "sample_docs/api_reference.md",
+          "content": "# TechCorp API Reference\n\n## Authentication\n\nAll API requests require authentication via Bearer token. Include your API key in the Authorization header:\n\n```\nAuthorization: Bearer tc_live_abc123xyz\n```\n\nAPI keys can be generated from the TechCorp Dashboard under Settings > API Keys. Each key has configurable permissions and rate limits.\n\n## Rate Limits\n\n| Plan | Requests/minute | Requests/day |\n|------|----------------|--------------|\n| Free | 60 | 1,000 |\n| Pro | 600 | 50,000 |\n| Enterprise | 6,000 | Unlimited |\n\nRate limit headers are included in every response:\n- `X-RateLimit-Limit`: Maximum requests per minute\n- `X-RateLimit-Remaining`: Remaining requests in current window\n- `X-RateLimit-Reset`: Unix timestamp when the window resets\n\n## Endpoints\n\n### GET /api/v2/instances\n\nList all cloud instances managed by TechCorp.\n\n**Parameters:**\n- `region` (optional): Filter by region (e.g., `us-east-1`, `eu-west-1`)\n- `status` (optional): Filter by status (`running`, `stopped`, `terminated`)\n- `page` (optional, default: 1): Page number for pagination\n- `per_page` (optional, default: 50, max: 200): Results per page\n\n**Response:**\n```json\n{\n  \"data\": [\n    {\n      \"id\": \"inst_abc123\",\n      \"name\": \"web-server-prod-01\",\n      \"type\": \"c5.2xlarge\",\n      \"region\": \"us-east-1\",\n      \"status\": \"running\",\n      \"monthly_cost\": 245.50,\n      \"cpu_utilization\": 0.42,\n      \"created_at\": \"2026-01-15T08:30:00Z\"\n    }\n  ],\n  \"pagination\": {\n    \"page\": 1,\n    \"per_page\": 50,\n    \"total\": 234,\n    \"total_pages\": 5\n  }\n}\n```\n\n### POST /api/v2/instances/{id}/optimize\n\nRun cost optimization analysis on a specific instance.\n\n**Response:**\n```json\n{\n  \"instance_id\": \"inst_abc123\",\n  \"current_cost\": 245.50,\n  \"recommended_type\": \"c5.xlarge\",\n  \"projected_cost\": 122.75,\n  \"s",
+          "metadata": {
+            "page_num": null,
+            "section_title": "",
+            "chunk_index": 0,
+            "overlap_tokens": 0
+          },
+          "score": 0.1332554481870507,
+          "retrieval_method": "vector"
+        }
+      ],
+      "metadata": {
+        "pattern": "self_correcting",
+        "model": "openai/gpt-4o-mini",
+        "embedding_model": "openai/text-embedding-3-small",
+        "tokens_used": 2299,
+        "latency_ms": 8672.953750006855,
+        "cost_usd": 0.0004389,
+        "retrieval_count": 5,
+        "final_chunk_count": 5,
+        "steps": [
+          {
+            "step": "preprocess",
+            "latency_ms": 0.0010831281542778015,
+            "detail": null
+          },
+          {
+            "step": "retrieve",
+            "latency_ms": 1.3072500005364418,
+            "detail": "5 chunks"
+          },
+          {
+            "step": "postprocess",
+            "latency_ms": 0.001416075974702835,
+            "detail": "5\u21925 chunks"
+          },
+          {
+            "step": "generate",
+            "latency_ms": 7622.298834146932,
+            "detail": "2090+209 tokens"
+          },
+          {
+            "step": "validate",
+            "latency_ms": 1049.2957080714405,
+            "detail": null
+          }
+        ]
+      }
+    }
+  }
+}
