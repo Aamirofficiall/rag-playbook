@@ -41,7 +41,16 @@ def compare(
     ] = None,
 ) -> None:
     """Run ALL patterns and compare results side by side."""
+    import logging
+
+    import structlog
+
+    logging.disable(logging.CRITICAL)
+    structlog.configure(
+        wrapper_class=structlog.make_filtering_bound_logger(logging.CRITICAL),
+    )
     asyncio.run(_compare_async(query, data, pattern_filter, top_k, evaluate, output))
+    logging.disable(logging.NOTSET)
 
 
 async def _compare_async(

@@ -21,8 +21,16 @@ def run(
 ) -> None:
     """Run a single RAG pattern and display the result."""
     import asyncio
+    import logging
 
+    import structlog
+
+    logging.disable(logging.CRITICAL)
+    structlog.configure(
+        wrapper_class=structlog.make_filtering_bound_logger(logging.CRITICAL),
+    )
     asyncio.run(_run_async(pattern_name, query, data, top_k))
+    logging.disable(logging.NOTSET)
 
 
 async def _run_async(pattern_name: str, query: str, data: Path, top_k: int) -> None:
