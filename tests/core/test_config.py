@@ -22,7 +22,7 @@ class TestSettingsDefaults:
 
     def test_default_vector_store(self) -> None:
         settings = Settings()
-        assert settings.vector_store_provider == "chromadb"
+        assert settings.vector_store_provider == "memory"
 
     def test_default_retrieval_config(self) -> None:
         settings = Settings()

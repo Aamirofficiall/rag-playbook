@@ -26,19 +26,26 @@ _EMBEDDING_PRICING: dict[str, float] = {
 _PER_MILLION = 1_000_000
 
 
+def _normalize_model(model: str) -> str:
+    """Strip provider prefix (e.g. 'openai/gpt-4o-mini' -> 'gpt-4o-mini')."""
+    return model.rsplit("/", 1)[-1] if "/" in model else model
+
+
 def llm_cost(model: str, input_tokens: int, output_tokens: int) -> float:
     """Calculate USD cost for an LLM call."""
-    if model not in _LLM_PRICING:
+    key = _normalize_model(model)
+    if key not in _LLM_PRICING:
         return 0.0
-    input_price, output_price = _LLM_PRICING[model]
+    input_price, output_price = _LLM_PRICING[key]
     return (input_tokens * input_price + output_tokens * output_price) / _PER_MILLION
 
 
 def embedding_cost(model: str, token_count: int) -> float:
     """Calculate USD cost for an embedding call."""
-    if model not in _EMBEDDING_PRICING:
+    key = _normalize_model(model)
+    if key not in _EMBEDDING_PRICING:
         return 0.0
-    return token_count * _EMBEDDING_PRICING[model] / _PER_MILLION
+    return token_count * _EMBEDDING_PRICING[key] / _PER_MILLION
 
 
 def supported_llm_models() -> list[str]:

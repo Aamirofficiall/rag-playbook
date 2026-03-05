@@ -170,7 +170,7 @@ class OpenAILLM(BaseLLM):
         if not settings.openai_api_key:
             raise ConfigurationError("OPENAI_API_KEY is required for OpenAI provider")
         self._client = httpx.AsyncClient(
-            base_url="https://api.openai.com/v1",
+            base_url=settings.openai_base_url,
             headers={"Authorization": f"Bearer {settings.openai_api_key}"},
             timeout=httpx.Timeout(self._timeout),
         )

@@ -28,6 +28,7 @@ class Settings(BaseSettings):
     # -- LLM ------------------------------------------------------------------
 
     openai_api_key: str = ""
+    openai_base_url: str = "https://api.openai.com/v1"
     anthropic_api_key: str = ""
     default_llm_provider: str = "openai"
     default_llm_model: str = "gpt-4o-mini"
@@ -42,7 +43,7 @@ class Settings(BaseSettings):
 
     # -- Vector Store ----------------------------------------------------------
 
-    vector_store_provider: str = "chromadb"
+    vector_store_provider: str = "memory"
     pgvector_url: str = ""
     qdrant_url: str = "http://localhost:6333"
 

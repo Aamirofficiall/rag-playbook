@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from typing import Any
 
 import pytest
@@ -17,6 +18,16 @@ from rag_playbook.core.embedder import BaseEmbedder
 from rag_playbook.core.llm import BaseLLM, Message
 from rag_playbook.core.models import ChunkMetadata, EmbeddedChunk
 from rag_playbook.core.vector_store import InMemoryVectorStore
+
+
+@pytest.fixture(autouse=True)
+def _clean_env(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Prevent .env file and real env vars from polluting unit tests."""
+    for key in list(os.environ):
+        if key.startswith("RAG_"):
+            monkeypatch.delenv(key, raising=False)
+    # Change to a nonexistent dir so pydantic-settings can't find .env
+    monkeypatch.chdir("/tmp")
 
 # ---------------------------------------------------------------------------
 # Mock LLM
