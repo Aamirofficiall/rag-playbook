@@ -22,6 +22,18 @@ from rag_playbook.core.exceptions import ConfigurationError, GenerationError
 
 logger = structlog.get_logger(__name__)
 
+_RE_CODE_FENCE = None  # lazy-compiled
+
+
+def _strip_code_fences(text: str) -> str:
+    """Strip markdown code fences (```json ... ```) from LLM output."""
+    global _RE_CODE_FENCE  # noqa: PLW0603
+    if _RE_CODE_FENCE is None:
+        import re
+        _RE_CODE_FENCE = re.compile(r"```(?:json)?\s*\n?(.*?)\n?\s*```", re.DOTALL)
+    m = _RE_CODE_FENCE.search(text)
+    return m.group(1).strip() if m else text.strip()
+
 
 # ---------------------------------------------------------------------------
 # Value objects
@@ -138,19 +150,20 @@ class BaseLLM(ABC):
     ) -> dict[str, Any]:
         """Generate and parse a JSON response.
 
-        On parse failure, retries once with a JSON-nudge appended.
+        Strips markdown code fences if present. On parse failure, retries
+        once with a JSON-nudge appended.
         """
         response = await self.generate(messages, **kwargs)
         try:
-            return json.loads(response.content)
+            return json.loads(_strip_code_fences(response.content))
         except json.JSONDecodeError:
             nudge = Message(
                 role="user",
-                content="Your response was not valid JSON. Please respond with valid JSON only.",
+                content="Your response was not valid JSON. Please respond with raw JSON only, no markdown.",
             )
             retry_response = await self.generate([*messages, nudge], **kwargs)
             try:
-                return json.loads(retry_response.content)
+                return json.loads(_strip_code_fences(retry_response.content))
             except json.JSONDecodeError as exc:
                 raise GenerationError(
                     f"LLM failed to produce valid JSON after retry: {retry_response.content[:200]}"
