@@ -24,8 +24,16 @@ def ingest(
 ) -> None:
     """Load documents into the vector store."""
     import asyncio
+    import logging
 
+    import structlog
+
+    logging.disable(logging.CRITICAL)
+    structlog.configure(
+        wrapper_class=structlog.make_filtering_bound_logger(logging.CRITICAL),
+    )
     asyncio.run(_ingest_async(data, chunker, chunk_size, chunk_overlap))
+    logging.disable(logging.NOTSET)
 
 
 async def _ingest_async(data: Path, chunker_name: str, chunk_size: int, chunk_overlap: int) -> None:
