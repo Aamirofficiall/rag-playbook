@@ -16,7 +16,7 @@ _OVERSAMPLE_FACTOR = 5
 
 
 class RerankingRAG(BaseRAGPattern):
-    """Broad retrieve → cross-encoder rerank for precision."""
+    """Broad retrieve -> cross-encoder rerank for precision."""
 
     _pattern_name = "reranking"
 

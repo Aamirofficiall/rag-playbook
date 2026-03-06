@@ -84,7 +84,7 @@
           {
             "step": "iteration_1",
             "latency_ms": 1598.745167022571,
-            "detail": "search(\"refund policy\") \u2192 5 chunks"
+            "detail": "search(\"refund policy\") -> 5 chunks"
           },
           {
             "step": "iteration_2",
@@ -186,7 +186,7 @@
           {
             "step": "postprocess",
             "latency_ms": 0.002708984538912773,
-            "detail": "5\u21925 chunks"
+            "detail": "5->5 chunks"
           },
           {
             "step": "generate",
@@ -293,7 +293,7 @@
           {
             "step": "postprocess",
             "latency_ms": 0.002125045284628868,
-            "detail": "5\u21925 chunks"
+            "detail": "5->5 chunks"
           },
           {
             "step": "generate",
@@ -400,7 +400,7 @@
           {
             "step": "postprocess",
             "latency_ms": 0.0012498348951339722,
-            "detail": "5\u21925 chunks"
+            "detail": "5->5 chunks"
           },
           {
             "step": "generate",
@@ -507,7 +507,7 @@
           {
             "step": "postprocess",
             "latency_ms": 0.02050003968179226,
-            "detail": "5\u21925 chunks"
+            "detail": "5->5 chunks"
           },
           {
             "step": "generate",
@@ -614,7 +614,7 @@
           {
             "step": "postprocess",
             "latency_ms": 0.0010828953236341476,
-            "detail": "5\u21925 chunks"
+            "detail": "5->5 chunks"
           },
           {
             "step": "generate",
@@ -721,7 +721,7 @@
           {
             "step": "postprocess",
             "latency_ms": 3940.8883748110384,
-            "detail": "8\u21925 chunks"
+            "detail": "8->5 chunks"
           },
           {
             "step": "generate",
@@ -828,7 +828,7 @@
           {
             "step": "postprocess",
             "latency_ms": 0.001416075974702835,
-            "detail": "5\u21925 chunks"
+            "detail": "5->5 chunks"
           },
           {
             "step": "generate",

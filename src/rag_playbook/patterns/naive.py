@@ -11,7 +11,7 @@ from rag_playbook.patterns.base import BaseRAGPattern
 
 
 class NaiveRAG(BaseRAGPattern):
-    """Baseline RAG: embed → retrieve → generate."""
+    """Baseline RAG: embed -> retrieve -> generate."""
 
     _pattern_name = "naive"
 
@@ -21,4 +21,4 @@ class NaiveRAG(BaseRAGPattern):
 
     @property
     def description(self) -> str:
-        return "Simple embed → retrieve → generate (baseline)"
+        return "Simple embed -> retrieve -> generate (baseline)"

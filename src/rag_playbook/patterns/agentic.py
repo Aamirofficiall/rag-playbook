@@ -96,7 +96,7 @@ class AgenticRAG(BaseRAGPattern):
                     StepTiming(
                         step=f"iteration_{iteration}",
                         latency_ms=(time.perf_counter() - t0) * 1000,
-                        detail=f'search("{search_query[:50]}") → {len(chunks)} chunks',
+                        detail=f'search("{search_query[:50]}") -> {len(chunks)} chunks',
                     )
                 )
         else:

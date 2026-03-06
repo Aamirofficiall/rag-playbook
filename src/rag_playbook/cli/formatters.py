@@ -52,7 +52,7 @@ def print_comparison_table(
     table.add_column("Chunks", justify="center", min_width=7)
 
     for name, result in results.items():
-        marker = " [bold yellow]★[/bold yellow]" if name == recommended else ""
+        marker = " [bold yellow]*[/bold yellow]" if name == recommended else ""
         pattern_cell = f"{name}{marker}"
 
         row = [pattern_cell]
@@ -71,7 +71,7 @@ def print_comparison_table(
 
 def print_recommendation(name: str, reasoning: str) -> None:
     """Print the recommendation section below the table."""
-    console.print(f"\n[bold yellow]★[/bold yellow] Recommended: [bold]{name}[/bold]")
+    console.print(f"\n[bold yellow]*[/bold yellow] Recommended: [bold]{name}[/bold]")
     console.print(f"  {reasoning}\n")
 
 

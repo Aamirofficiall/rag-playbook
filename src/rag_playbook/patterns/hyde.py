@@ -15,7 +15,7 @@ from rag_playbook.patterns.base import BaseRAGPattern
 
 
 class HyDERAG(BaseRAGPattern):
-    """Hypothetical Document Embeddings — question→answer space bridging."""
+    """Hypothetical Document Embeddings — question->answer space bridging."""
 
     _pattern_name = "hyde"
 

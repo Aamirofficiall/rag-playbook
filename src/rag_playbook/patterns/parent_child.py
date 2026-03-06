@@ -17,7 +17,7 @@ _PARENT_WINDOW = 2  # chunks before/after the child to include
 
 
 class ParentChildRAG(BaseRAGPattern):
-    """Small chunk retrieval → parent context expansion to LLM."""
+    """Small chunk retrieval -> parent context expansion to LLM."""
 
     _pattern_name = "parent_child"
 
@@ -27,7 +27,7 @@ class ParentChildRAG(BaseRAGPattern):
 
     @property
     def description(self) -> str:
-        return "Small chunk retrieval → parent context to LLM"
+        return "Small chunk retrieval -> parent context to LLM"
 
     async def postprocess_chunks(
         self, question: str, chunks: list[RetrievedChunk]
