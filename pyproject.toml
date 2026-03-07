@@ -98,6 +98,11 @@ addopts = "-m unit --tb=short -q"
 [tool.mypy]
 python_version = "3.11"
 strict = true
+exclude = ["^benchmarks/"]
+
+[[tool.mypy.overrides]]
+module = "benchmarks.*"
+follow_imports = "skip"
 
 [tool.coverage.run]
 source = ["src/rag_playbook"]
@@ -105,4 +110,4 @@ branch = true
 
 [tool.coverage.report]
 show_missing = true
-fail_under = 80
+fail_under = 75

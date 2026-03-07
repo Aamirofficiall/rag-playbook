@@ -82,4 +82,4 @@ for _cls in [
     SelfCorrectingRAG,
     AgenticRAG,
 ]:
-    _register(_cls)
+    _register(_cls)  # type: ignore[type-abstract]

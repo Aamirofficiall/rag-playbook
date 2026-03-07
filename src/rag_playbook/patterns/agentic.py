@@ -9,6 +9,7 @@ Maximum 5 search iterations to bound cost.
 from __future__ import annotations
 
 import json
+from typing import Any
 
 from rag_playbook.core.llm import Message
 from rag_playbook.core.models import (
@@ -134,7 +135,7 @@ class AgenticRAG(BaseRAGPattern):
         )
 
     @staticmethod
-    def _parse_tool_call(text: str) -> dict | None:
+    def _parse_tool_call(text: str) -> dict[str, Any] | None:
         """Extract a tool call JSON from the LLM response."""
         try:
             data = json.loads(text.strip())

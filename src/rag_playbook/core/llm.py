@@ -156,7 +156,8 @@ class BaseLLM(ABC):
         """
         response = await self.generate(messages, **kwargs)
         try:
-            return json.loads(_strip_code_fences(response.content))
+            result: dict[str, Any] = json.loads(_strip_code_fences(response.content))
+            return result
         except json.JSONDecodeError:
             nudge = Message(
                 role="user",
@@ -165,7 +166,10 @@ class BaseLLM(ABC):
             )
             retry_response = await self.generate([*messages, nudge], **kwargs)
             try:
-                return json.loads(_strip_code_fences(retry_response.content))
+                retry_result: dict[str, Any] = json.loads(
+                    _strip_code_fences(retry_response.content)
+                )
+                return retry_result
             except json.JSONDecodeError as exc:
                 raise GenerationError(
                     f"LLM failed to produce valid JSON after retry: {retry_response.content[:200]}"

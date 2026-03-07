@@ -154,7 +154,7 @@ class InMemoryVectorStore(BaseVectorStore):
         results: list[RetrievedChunk] = []
         max_score = max(rrf_scores.values()) if rrf_scores else 1.0
         for chunk_id in sorted_ids[:top_k]:
-            chunk = self._chunks[chunk_id]
+            chunk = self._chunks[chunk_id]  # type: ignore[assignment]
             normalized = rrf_scores[chunk_id] / max_score if max_score > 0 else 0.0
             results.append(
                 RetrievedChunk(

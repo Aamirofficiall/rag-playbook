@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 from pathlib import Path
 from typing import Annotated
 
@@ -24,7 +25,7 @@ def bench(
 ) -> None:
     """Run full benchmark suite across datasets and patterns."""
     try:
-        from benchmarks.run_all import run_benchmarks  # type: ignore[import-untyped]
+        from benchmarks.run_all import run_benchmarks
     except ImportError:
         console.print("[red]Benchmarks package is not installed.[/red]")
         console.print("Install with: pip install -e '.[benchmarks]'")
@@ -38,6 +39,12 @@ def bench(
     console.print(f"  Patterns: {pt_list or 'all'}")
     console.print(f"  Output:   {output_dir}\n")
 
-    run_benchmarks(datasets=ds_list, patterns=pt_list, output_dir=output_dir)
+    asyncio.run(
+        run_benchmarks(
+            dataset_names=ds_list or [],
+            pattern_names=pt_list or [],
+            output_dir=output_dir,
+        )
+    )
 
     console.print(f"\n[green]Results saved to {output_dir}[/green]")
