@@ -57,14 +57,14 @@ class TestSettingsOverrides:
         assert settings.default_top_k == 10
 
     def test_override_via_env(self, monkeypatch: pytest.MonkeyPatch) -> None:
-        monkeypatch.setenv("RAG_DEFAULT_LLM_MODEL", "gpt-4o")
-        monkeypatch.setenv("RAG_DEFAULT_TOP_K", "20")
+        monkeypatch.setenv("DEFAULT_LLM_MODEL", "gpt-4o")
+        monkeypatch.setenv("DEFAULT_TOP_K", "20")
         settings = Settings()
         assert settings.default_llm_model == "gpt-4o"
         assert settings.default_top_k == 20
 
     def test_api_key_from_env(self, monkeypatch: pytest.MonkeyPatch) -> None:
-        monkeypatch.setenv("RAG_OPENAI_API_KEY", "sk-test-123")
+        monkeypatch.setenv("OPENAI_API_KEY", "sk-test-123")
         settings = Settings()
         assert settings.openai_api_key == "sk-test-123"
 

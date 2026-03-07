@@ -173,17 +173,45 @@ See [CLI Reference](docs/CLI.md) for full usage.
 
 ## Configuration
 
-All settings can be configured via environment variables with the `RAG_` prefix:
+Environment variables map directly to settings — no prefix needed:
 
 ```bash
-# .env
-RAG_LLM_PROVIDER=openai
-RAG_LLM_MODEL=gpt-4o-mini
-RAG_EMBEDDING_MODEL=text-embedding-3-small
-RAG_EMBEDDING_DIMENSIONS=1536
-RAG_TOP_K=5
-RAG_CHUNK_SIZE=512
-RAG_CHUNK_OVERLAP=50
+# .env — Core settings
+OPENAI_API_KEY=sk-...                  # Required for OpenAI provider
+DEFAULT_LLM_PROVIDER=openai            # openai | anthropic
+DEFAULT_LLM_MODEL=gpt-4o-mini         # Any model your provider supports
+EMBEDDING_MODEL=text-embedding-3-small
+EMBEDDING_DIMENSION=1536
+DEFAULT_TOP_K=5
+DEFAULT_CHUNK_SIZE=512
+DEFAULT_CHUNK_OVERLAP=50
+```
+
+### Using OpenRouter (or any OpenAI-compatible API)
+
+Works with any OpenAI-compatible endpoint — OpenRouter, Azure OpenAI, Ollama, vLLM, etc:
+
+```bash
+OPENAI_API_KEY=sk-or-v1-...                     # Your OpenRouter key
+OPENAI_BASE_URL=https://openrouter.ai/api/v1    # Custom base URL
+DEFAULT_LLM_MODEL=openai/gpt-4o-mini            # OpenRouter model format
+```
+
+### Vector store backends
+
+The default in-memory store re-embeds every session. For persistent storage:
+
+```bash
+# ChromaDB (pip install rag-playbook[chromadb])
+VECTOR_STORE_PROVIDER=chromadb
+
+# pgvector (pip install rag-playbook[pgvector])
+VECTOR_STORE_PROVIDER=pgvector
+PGVECTOR_URL=postgresql://user:pass@localhost:5432/ragdb
+
+# Qdrant (pip install rag-playbook[qdrant])
+VECTOR_STORE_PROVIDER=qdrant
+QDRANT_URL=http://localhost:6333
 ```
 
 Or pass a `Settings` object directly in code. See [.env.example](.env.example) for all options.

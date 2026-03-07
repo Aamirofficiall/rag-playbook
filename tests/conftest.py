@@ -23,8 +23,26 @@ from rag_playbook.core.vector_store import InMemoryVectorStore
 @pytest.fixture(autouse=True)
 def _clean_env(monkeypatch: pytest.MonkeyPatch) -> None:
     """Prevent .env file and real env vars from polluting unit tests."""
+    settings_keys = {
+        "OPENAI_API_KEY",
+        "OPENAI_BASE_URL",
+        "ANTHROPIC_API_KEY",
+        "DEFAULT_LLM_PROVIDER",
+        "DEFAULT_LLM_MODEL",
+        "EMBEDDING_PROVIDER",
+        "EMBEDDING_MODEL",
+        "EMBEDDING_DIMENSION",
+        "VECTOR_STORE_PROVIDER",
+        "PGVECTOR_URL",
+        "QDRANT_URL",
+        "DEFAULT_TOP_K",
+        "DEFAULT_CHUNK_SIZE",
+        "DEFAULT_CHUNK_OVERLAP",
+        "LLM_TIMEOUT_SECONDS",
+        "LLM_MAX_RETRIES",
+    }
     for key in list(os.environ):
-        if key.startswith("RAG_"):
+        if key in settings_keys:
             monkeypatch.delenv(key, raising=False)
     # Change to a nonexistent dir so pydantic-settings can't find .env
     monkeypatch.chdir("/tmp")

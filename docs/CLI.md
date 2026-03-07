@@ -7,8 +7,8 @@ output. Install the package and run:
 rag-playbook --help
 ```
 
-All commands require an LLM API key. Set `RAG_OPENAI_API_KEY` (or
-`RAG_ANTHROPIC_API_KEY`) in your environment or `.env` file.
+All commands require an LLM API key. Set `OPENAI_API_KEY` (or
+`ANTHROPIC_API_KEY`) in your environment or `.env` file.
 
 ---
 
@@ -143,19 +143,20 @@ No options. Outputs a table of pattern names and one-line descriptions.
 
 ## Environment Variables
 
-All settings are configured via environment variables prefixed with `RAG_` or a
-`.env` file. Key variables:
+All settings are configured via environment variables or a `.env` file.
+Variable names match the settings fields directly — no prefix needed.
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `RAG_OPENAI_API_KEY` | (none) | OpenAI API key |
-| `RAG_ANTHROPIC_API_KEY` | (none) | Anthropic API key |
-| `RAG_DEFAULT_LLM_PROVIDER` | `openai` | LLM provider: `openai` or `anthropic` |
-| `RAG_DEFAULT_LLM_MODEL` | `gpt-4o-mini` | Model name |
-| `RAG_EMBEDDING_PROVIDER` | `openai` | Embedding provider |
-| `RAG_EMBEDDING_MODEL` | `text-embedding-3-small` | Embedding model |
-| `RAG_VECTOR_STORE_PROVIDER` | `chromadb` | Vector store: `memory`, `chromadb` |
-| `RAG_DEFAULT_TOP_K` | `5` | Default number of chunks to retrieve |
-| `RAG_HYBRID_SEARCH_ALPHA` | `0.5` | Weight for vector vs keyword in hybrid search (0=keyword, 1=vector) |
-| `RAG_DEFAULT_CHUNK_SIZE` | `512` | Default tokens per chunk |
-| `RAG_DEFAULT_CHUNK_OVERLAP` | `50` | Default overlap tokens |
+| `OPENAI_API_KEY` | (none) | OpenAI API key |
+| `ANTHROPIC_API_KEY` | (none) | Anthropic API key |
+| `OPENAI_BASE_URL` | `https://api.openai.com/v1` | Custom base URL (OpenRouter, Azure, etc.) |
+| `DEFAULT_LLM_PROVIDER` | `openai` | LLM provider: `openai` or `anthropic` |
+| `DEFAULT_LLM_MODEL` | `gpt-4o-mini` | Model name |
+| `EMBEDDING_PROVIDER` | `openai` | Embedding provider |
+| `EMBEDDING_MODEL` | `text-embedding-3-small` | Embedding model |
+| `VECTOR_STORE_PROVIDER` | `memory` | Vector store: `memory`, `chromadb`, `pgvector`, `qdrant` |
+| `DEFAULT_TOP_K` | `5` | Default number of chunks to retrieve |
+| `HYBRID_SEARCH_ALPHA` | `0.5` | Weight for vector vs keyword in hybrid search (0=keyword, 1=vector) |
+| `DEFAULT_CHUNK_SIZE` | `512` | Default tokens per chunk |
+| `DEFAULT_CHUNK_OVERLAP` | `50` | Default overlap tokens |
