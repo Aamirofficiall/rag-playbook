@@ -32,7 +32,7 @@ rag-playbook compare --data ./my_docs/ --query "What is the refund policy?"
 ```
 
 <p align="center">
-  <img src="assets/compare_screenshot.png" alt="rag-playbook compare output" width="700">
+  <img src="https://raw.githubusercontent.com/Aamirofficiall/rag-playbook/main/assets/compare_screenshot.png" alt="rag-playbook compare output" width="700">
 </p>
 
 ## Patterns
@@ -136,7 +136,7 @@ rag-playbook run reranking --data ./docs/ --query "What are the laptop specs?"
 ```
 
 <p align="center">
-  <img src="assets/run_screenshot.png" alt="rag-playbook run output" width="700">
+  <img src="https://raw.githubusercontent.com/Aamirofficiall/rag-playbook/main/assets/run_screenshot.png" alt="rag-playbook run output" width="700">
 </p>
 
 ### List available patterns
@@ -146,7 +146,7 @@ rag-playbook patterns
 ```
 
 <p align="center">
-  <img src="assets/patterns_screenshot.png" alt="rag-playbook patterns output" width="700">
+  <img src="https://raw.githubusercontent.com/Aamirofficiall/rag-playbook/main/assets/patterns_screenshot.png" alt="rag-playbook patterns output" width="700">
 </p>
 
 ### Get a pattern recommendation
@@ -156,7 +156,7 @@ rag-playbook recommend --query "What is the refund policy?"
 ```
 
 <p align="center">
-  <img src="assets/recommend_screenshot.png" alt="rag-playbook recommend output" width="700">
+  <img src="https://raw.githubusercontent.com/Aamirofficiall/rag-playbook/main/assets/recommend_screenshot.png" alt="rag-playbook recommend output" width="700">
 </p>
 
 ### Ingest documents
@@ -166,7 +166,7 @@ rag-playbook ingest --data ./sample_docs/
 ```
 
 <p align="center">
-  <img src="assets/ingest_screenshot.png" alt="rag-playbook ingest output" width="700">
+  <img src="https://raw.githubusercontent.com/Aamirofficiall/rag-playbook/main/assets/ingest_screenshot.png" alt="rag-playbook ingest output" width="700">
 </p>
 
 See [CLI Reference](docs/CLI.md) for full usage.

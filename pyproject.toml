@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "rag-playbook"
-version = "0.1.0"
+version = "0.1.1"
 description = "Compare RAG patterns with real benchmarks. Run one command, see which pattern wins."
 readme = "README.md"
 license = { text = "MIT" }
