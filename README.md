@@ -6,10 +6,10 @@
 
 [![PyPI](https://img.shields.io/pypi/v/rag-playbook)](https://pypi.org/project/rag-playbook/)
 [![Tests](https://img.shields.io/github/actions/workflow/status/Aamirofficiall/rag-playbook/ci.yml)](https://github.com/Aamirofficiall/rag-playbook/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/Aamirofficiall/rag-playbook/blob/main/LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://python.org)
 
-[Quick Start](#quick-start) · [Patterns](#patterns) · [Decision Guide](docs/WHEN_TO_USE.md) · [Architecture](docs/ARCHITECTURE.md) · [CLI Reference](docs/CLI.md)
+[Quick Start](#quick-start) · [Patterns](#patterns) · [Decision Guide](https://github.com/Aamirofficiall/rag-playbook/blob/main/docs/WHEN_TO_USE.md) · [Architecture](https://github.com/Aamirofficiall/rag-playbook/blob/main/docs/ARCHITECTURE.md) · [CLI Reference](https://github.com/Aamirofficiall/rag-playbook/blob/main/docs/CLI.md)
 
 </div>
 
@@ -39,16 +39,16 @@ rag-playbook compare --data ./my_docs/ --query "What is the refund policy?"
 
 | # | Pattern | Best For | Latency | Cost |
 |---|---------|----------|---------|------|
-| 01 | [Naive](docs/patterns/01-naive.md) | Simple factual queries | ~1s | $ |
-| 02 | [Hybrid Search](docs/patterns/02-hybrid-search.md) | Queries with codes, IDs, exact terms | ~1.1s | $ |
-| 03 | [Re-ranking](docs/patterns/03-reranking.md) | When top-K retrieval isn't precise enough | ~1.4s | $$ |
-| 04 | [Parent-Child](docs/patterns/04-parent-child.md) | Long documents with clear sections | ~1s | $ |
-| 05 | [Query Decomposition](docs/patterns/05-query-decomposition.md) | Complex multi-part questions | ~2.1s | $$$ |
-| 06 | [HyDE](docs/patterns/06-hyde.md) | Short or ambiguous queries | ~1.5s | $$ |
-| 07 | [Self-Correcting](docs/patterns/07-self-correcting.md) | When hallucination risk is high | ~2.8s | $$$ |
-| 08 | [Agentic](docs/patterns/08-agentic.md) | When query intent is unclear | ~3.2s | $$$$ |
+| 01 | [Naive](https://github.com/Aamirofficiall/rag-playbook/blob/main/docs/patterns/01-naive.md) | Simple factual queries | ~1s | $ |
+| 02 | [Hybrid Search](https://github.com/Aamirofficiall/rag-playbook/blob/main/docs/patterns/02-hybrid-search.md) | Queries with codes, IDs, exact terms | ~1.1s | $ |
+| 03 | [Re-ranking](https://github.com/Aamirofficiall/rag-playbook/blob/main/docs/patterns/03-reranking.md) | When top-K retrieval isn't precise enough | ~1.4s | $$ |
+| 04 | [Parent-Child](https://github.com/Aamirofficiall/rag-playbook/blob/main/docs/patterns/04-parent-child.md) | Long documents with clear sections | ~1s | $ |
+| 05 | [Query Decomposition](https://github.com/Aamirofficiall/rag-playbook/blob/main/docs/patterns/05-query-decomposition.md) | Complex multi-part questions | ~2.1s | $$$ |
+| 06 | [HyDE](https://github.com/Aamirofficiall/rag-playbook/blob/main/docs/patterns/06-hyde.md) | Short or ambiguous queries | ~1.5s | $$ |
+| 07 | [Self-Correcting](https://github.com/Aamirofficiall/rag-playbook/blob/main/docs/patterns/07-self-correcting.md) | When hallucination risk is high | ~2.8s | $$$ |
+| 08 | [Agentic](https://github.com/Aamirofficiall/rag-playbook/blob/main/docs/patterns/08-agentic.md) | When query intent is unclear | ~3.2s | $$$$ |
 
-[Which pattern should I use? (decision guide)](docs/WHEN_TO_USE.md)
+[Which pattern should I use? (decision guide)](https://github.com/Aamirofficiall/rag-playbook/blob/main/docs/WHEN_TO_USE.md)
 
 ## How is this different from [X]?
 
@@ -87,7 +87,7 @@ async def main():
 asyncio.run(main())
 ```
 
-See [examples/](examples/) for more usage patterns.
+See [examples/](https://github.com/Aamirofficiall/rag-playbook/tree/main/examples) for more usage patterns.
 
 ## Installation
 
@@ -169,7 +169,7 @@ rag-playbook ingest --data ./sample_docs/
   <img src="https://raw.githubusercontent.com/Aamirofficiall/rag-playbook/main/assets/ingest_screenshot.png" alt="rag-playbook ingest output" width="700">
 </p>
 
-See [CLI Reference](docs/CLI.md) for full usage.
+See [CLI Reference](https://github.com/Aamirofficiall/rag-playbook/blob/main/docs/CLI.md) for full usage.
 
 ## Configuration
 
@@ -214,7 +214,7 @@ VECTOR_STORE_PROVIDER=qdrant
 QDRANT_URL=http://localhost:6333
 ```
 
-Or pass a `Settings` object directly in code. See [.env.example](.env.example) for all options.
+Or pass a `Settings` object directly in code. See [.env.example](https://github.com/Aamirofficiall/rag-playbook/blob/main/.env.example) for all options.
 
 ## Architecture
 
@@ -231,7 +231,7 @@ Design patterns used:
 - **Decorator** — CachedEmbedder wrapping any embedder with SHA-256 keyed cache
 - **Factory** — `create_pattern()`, `create_llm()`, `create_embedder()`, etc.
 
-See [Architecture Guide](docs/ARCHITECTURE.md) for details.
+See [Architecture Guide](https://github.com/Aamirofficiall/rag-playbook/blob/main/docs/ARCHITECTURE.md) for details.
 
 ## Development
 
@@ -244,7 +244,7 @@ make type-check # Type check with mypy
 make check      # Run all checks
 ```
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide.
+See [CONTRIBUTING.md](https://github.com/Aamirofficiall/rag-playbook/blob/main/CONTRIBUTING.md) for the full guide.
 
 ## Project Structure
 
@@ -289,4 +289,4 @@ Built by [Aamir Shahzad](https://aamirshahzad.uk) — backend engineer building 
 
 ## License
 
-[MIT](LICENSE)
+[MIT](https://github.com/Aamirofficiall/rag-playbook/blob/main/LICENSE)
