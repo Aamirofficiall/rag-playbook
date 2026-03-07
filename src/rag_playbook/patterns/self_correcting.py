@@ -18,7 +18,7 @@ _MAX_RETRIES = 2
 
 
 class SelfCorrectingRAG(BaseRAGPattern):
-    """Validate → detect hallucination → retry with new context."""
+    """Validate -> detect hallucination -> retry with new context."""
 
     _pattern_name = "self_correcting"
 
@@ -28,7 +28,7 @@ class SelfCorrectingRAG(BaseRAGPattern):
 
     @property
     def description(self) -> str:
-        return "Validate → detect hallucination → retry"
+        return "Validate -> detect hallucination -> retry"
 
     async def validate(self, question: str, answer: str, chunks: list[RetrievedChunk]) -> str:
         """Check faithfulness and retry if hallucinating."""

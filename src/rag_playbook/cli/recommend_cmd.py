@@ -15,8 +15,16 @@ def recommend(
 ) -> None:
     """Analyze a query and suggest the best RAG pattern."""
     import asyncio
+    import logging
 
+    import structlog
+
+    logging.disable(logging.CRITICAL)
+    structlog.configure(
+        wrapper_class=structlog.make_filtering_bound_logger(logging.CRITICAL),
+    )
     asyncio.run(_recommend_async(query))
+    logging.disable(logging.NOTSET)
 
 
 async def _recommend_async(query: str) -> None:

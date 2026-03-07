@@ -96,7 +96,7 @@ class BaseRAGPattern(ABC):
             StepTiming(
                 step="postprocess",
                 latency_ms=(time.perf_counter() - t0) * 1000,
-                detail=f"{len(all_chunks)}\u2192{len(final_chunks)} chunks",
+                detail=f"{len(all_chunks)}->{len(final_chunks)} chunks",
             )
         )
 
