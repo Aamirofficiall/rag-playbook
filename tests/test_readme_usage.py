@@ -5,15 +5,15 @@ Uses mock LLM/embedder from conftest to avoid real API calls.
 
 from __future__ import annotations
 
+from typing import ClassVar
+
 import pytest
 
-from rag_playbook import Document, Settings, create_pattern
+from rag_playbook import Document, create_pattern
 from rag_playbook.core.models import EmbeddedChunk, RAGResult
 from rag_playbook.core.vector_store import InMemoryVectorStore
 from rag_playbook.patterns import PATTERN_REGISTRY, available_pattern_names
-
-from tests.conftest import MockEmbedder, MockLLM, SAMPLE_CHUNKS
-
+from tests.conftest import SAMPLE_CHUNKS, MockEmbedder, MockLLM
 
 # ---------------------------------------------------------------------------
 # Library usage (README "Use as a Library" section)
@@ -42,8 +42,12 @@ class TestLibraryUsage:
         assert len(result.sources) > 0
         assert result.metadata.final_chunk_count > 0
 
-    async def test_result_metadata_fields(self, mock_llm, mock_embedder, mock_store) -> None:
-        pattern = create_pattern("reranking", llm=mock_llm, embedder=mock_embedder, store=mock_store)
+    async def test_result_metadata_fields(
+        self, mock_llm, mock_embedder, mock_store,
+    ) -> None:
+        pattern = create_pattern(
+            "reranking", llm=mock_llm, embedder=mock_embedder, store=mock_store,
+        )
         result = await pattern.query("What is the refund policy?")
 
         assert result.metadata.model == "mock-llm"
@@ -60,7 +64,7 @@ class TestLibraryUsage:
 class TestAllPatternsRunnable:
     """Every pattern listed in the README must be queryable."""
 
-    EXPECTED_PATTERNS = [
+    EXPECTED_PATTERNS: ClassVar[list[str]] = [
         "naive",
         "hybrid_search",
         "reranking",
@@ -135,7 +139,11 @@ class TestIngestionFlow:
 
         doc = Document(
             id="long-doc",
-            content="First paragraph about refunds.\n\nSecond paragraph about shipping.\n\nThird paragraph about support.",
+            content=(
+                "First paragraph about refunds.\n\n"
+                "Second paragraph about shipping.\n\n"
+                "Third paragraph about support."
+            ),
         )
         chunker = create_chunker(strategy="recursive", chunk_size=20, chunk_overlap=0)
         chunks = chunker.chunk(doc)
@@ -208,7 +216,9 @@ class TestCreatePatternFactory:
 class TestCLICommands:
     """Verify all CLI commands from README are registered and have help text."""
 
-    COMMANDS = ["compare", "run", "recommend", "ingest", "bench", "patterns"]
+    COMMANDS: ClassVar[list[str]] = [
+        "compare", "run", "recommend", "ingest", "bench", "patterns",
+    ]
 
     @pytest.mark.parametrize("cmd", COMMANDS)
     def test_command_help(self, cmd) -> None:

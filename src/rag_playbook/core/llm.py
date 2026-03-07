@@ -27,7 +27,7 @@ _RE_CODE_FENCE = None  # lazy-compiled
 
 def _strip_code_fences(text: str) -> str:
     """Strip markdown code fences (```json ... ```) from LLM output."""
-    global _RE_CODE_FENCE  # noqa: PLW0603
+    global _RE_CODE_FENCE
     if _RE_CODE_FENCE is None:
         import re
         _RE_CODE_FENCE = re.compile(r"```(?:json)?\s*\n?(.*?)\n?\s*```", re.DOTALL)
@@ -159,7 +159,8 @@ class BaseLLM(ABC):
         except json.JSONDecodeError:
             nudge = Message(
                 role="user",
-                content="Your response was not valid JSON. Please respond with raw JSON only, no markdown.",
+                content="Your response was not valid JSON. "
+                "Please respond with raw JSON only, no markdown.",
             )
             retry_response = await self.generate([*messages, nudge], **kwargs)
             try:
