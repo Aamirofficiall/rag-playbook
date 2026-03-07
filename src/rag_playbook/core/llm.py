@@ -30,6 +30,7 @@ def _strip_code_fences(text: str) -> str:
     global _RE_CODE_FENCE
     if _RE_CODE_FENCE is None:
         import re
+
         _RE_CODE_FENCE = re.compile(r"```(?:json)?\s*\n?(.*?)\n?\s*```", re.DOTALL)
     m = _RE_CODE_FENCE.search(text)
     return m.group(1).strip() if m else text.strip()

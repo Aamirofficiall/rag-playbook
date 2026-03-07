@@ -43,10 +43,16 @@ class TestLibraryUsage:
         assert result.metadata.final_chunk_count > 0
 
     async def test_result_metadata_fields(
-        self, mock_llm, mock_embedder, mock_store,
+        self,
+        mock_llm,
+        mock_embedder,
+        mock_store,
     ) -> None:
         pattern = create_pattern(
-            "reranking", llm=mock_llm, embedder=mock_embedder, store=mock_store,
+            "reranking",
+            llm=mock_llm,
+            embedder=mock_embedder,
+            store=mock_store,
         )
         result = await pattern.query("What is the refund policy?")
 
@@ -217,7 +223,12 @@ class TestCLICommands:
     """Verify all CLI commands from README are registered and have help text."""
 
     COMMANDS: ClassVar[list[str]] = [
-        "compare", "run", "recommend", "ingest", "bench", "patterns",
+        "compare",
+        "run",
+        "recommend",
+        "ingest",
+        "bench",
+        "patterns",
     ]
 
     @pytest.mark.parametrize("cmd", COMMANDS)

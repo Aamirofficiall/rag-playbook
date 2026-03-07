@@ -29,6 +29,7 @@ def _clean_env(monkeypatch: pytest.MonkeyPatch) -> None:
     # Change to a nonexistent dir so pydantic-settings can't find .env
     monkeypatch.chdir("/tmp")
 
+
 # ---------------------------------------------------------------------------
 # Mock LLM
 # ---------------------------------------------------------------------------
