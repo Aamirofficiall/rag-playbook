@@ -4,6 +4,7 @@
 
 **Stop guessing which RAG pattern to use. Compare them with real numbers.**
 
+[![PyPI](https://img.shields.io/pypi/v/rag-playbook)](https://pypi.org/project/rag-playbook/)
 [![Tests](https://img.shields.io/github/actions/workflow/status/Aamirofficiall/rag-playbook/ci.yml)](https://github.com/Aamirofficiall/rag-playbook/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://python.org)
