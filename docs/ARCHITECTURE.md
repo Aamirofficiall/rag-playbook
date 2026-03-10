@@ -6,13 +6,13 @@
                          rag-playbook
   +---------------------------------------------------------+
   |  CLI Layer (typer + rich)                                |
-  |  compare | run | recommend | ingest | patterns           |
+  |  compare | run | recommend | ingest | bench | patterns   |
   +-------------------------+-------------------------------+
                             |
   +-------------------------v-------------------------------+
   |  Pattern Layer                                           |
   |                                                          |
-  |  BaseRAGPattern (Template Method)                        |
+  |  BaseRAGPattern                                          |
   |    |-- NaiveRAG          (01)                            |
   |    |-- HybridSearchRAG   (02)                            |
   |    |-- RerankingRAG      (03)                            |
@@ -28,19 +28,19 @@
   +-------------------------v-------------------------------+
   |  Core Infrastructure                                     |
   |                                                          |
-  |  BaseLLM -----> OpenAILLM | AnthropicLLM   (Strategy)   |
-  |  BaseEmbedder -> OpenAIEmbedder             (Strategy)   |
-  |  CachedEmbedder(inner)                      (Decorator)  |
-  |  BaseVectorStore -> InMemoryVectorStore     (Repository) |
-  |  BaseChunker -> Fixed|Recursive|Structural  (Strategy)   |
+  |  BaseLLM -----> OpenAILLM | AnthropicLLM                 |
+  |  BaseEmbedder -> OpenAIEmbedder                          |
+  |  CachedEmbedder(inner)                                   |
+  |  BaseVectorStore -> InMemoryVectorStore                  |
+  |  BaseChunker -> Fixed|Recursive|Structural               |
   |  Settings (pydantic-settings, .env)                      |
   |  Models: Document->Chunk->EmbeddedChunk->RetrievedChunk  |
   +---------------------------------------------------------+
 ```
 
-## Design Patterns
+## How It Fits Together
 
-### Strategy -- LLM and Embedding Providers
+### LLM and Embedding Providers
 
 `BaseLLM` and `BaseEmbedder` define abstract interfaces. Concrete implementations
 (`OpenAILLM`, `AnthropicLLM`, `OpenAIEmbedder`) are selected at runtime via
@@ -49,7 +49,7 @@ factory functions (`create_llm`, `create_embedder`). Patterns call
 
 **Files:** `src/rag_playbook/core/llm.py`, `src/rag_playbook/core/embedder.py`
 
-### Repository -- Vector Stores
+### Vector Stores
 
 `BaseVectorStore` abstracts storage with `add()`, `search()`, `hybrid_search()`,
 `delete()`, `count()`, and `reset()`. The `InMemoryVectorStore` ships as the
@@ -58,7 +58,7 @@ optional dependencies.
 
 **File:** `src/rag_playbook/core/vector_store.py`
 
-### Template Method -- BaseRAGPattern
+### BaseRAGPattern
 
 The `query()` method in `BaseRAGPattern` is the fixed skeleton. It orchestrates
 five steps in order, timing each one:
@@ -75,7 +75,7 @@ Subclasses override individual steps. For example, `HyDERAG` overrides only
 
 **File:** `src/rag_playbook/patterns/base.py`
 
-### Decorator -- CachedEmbedder
+### Embedding Cache
 
 `CachedEmbedder` wraps any `BaseEmbedder` with an in-memory SHA-256 cache. When
 the `compare` command runs all 8 patterns against the same documents, embeddings
@@ -84,7 +84,7 @@ embedding cost by ~8x.
 
 **File:** `src/rag_playbook/core/embedder.py`
 
-### Factory -- create_* Functions
+### Factory Functions
 
 Each subsystem exposes a factory: `create_llm()`, `create_embedder()`,
 `create_vector_store()`, `create_chunker()`, and `create_pattern()`. These read
@@ -137,7 +137,7 @@ src/rag_playbook/
 |
 |-- patterns/
 |   |-- __init__.py          PATTERN_REGISTRY, create_pattern(), all_patterns()
-|   |-- base.py              BaseRAGPattern (Template Method)
+|   |-- base.py              BaseRAGPattern
 |   |-- naive.py             Pattern 01
 |   |-- hybrid_search.py     Pattern 02
 |   |-- reranking.py         Pattern 03
@@ -154,10 +154,13 @@ src/rag_playbook/
 |   |-- compare_cmd.py       Side-by-side comparison
 |   |-- recommend_cmd.py     LLM-powered pattern recommendation
 |   |-- ingest_cmd.py        Document loading and indexing
+|   |-- bench_cmd.py         Full benchmark suite
 |   |-- patterns_cmd.py      List registered patterns
 |   +-- formatters.py        Rich terminal output helpers
 |
 +-- utils/
+    |-- __init__.py
+    |-- retry.py             Exponential backoff with jitter
     |-- timer.py             Timing utilities
     +-- tokenizer.py         Token counting helpers
 ```

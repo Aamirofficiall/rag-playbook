@@ -30,9 +30,13 @@ Question
 
 Stage 1 retrieves 5x more candidates than needed using fast vector search.
 Stage 2 scores each candidate against the question using an LLM-based relevance
-prompt (production systems use a cross-encoder model like
-`cross-encoder/ms-marco-MiniLM-L-6-v2`). Only the top-K highest-scored chunks
-proceed to generation.
+prompt that rates each chunk from 0.0 to 1.0. Only the top-K highest-scored
+chunks proceed to generation.
+
+> **Note:** The current implementation uses LLM-based scoring (one call per chunk).
+> Production systems typically replace this with a cross-encoder model like
+> `cross-encoder/ms-marco-MiniLM-L-6-v2` for 10-50x faster reranking. See
+> Production Tips below.
 
 ## When to Use
 

@@ -293,7 +293,7 @@ class TestEnums:
 
     def test_chunk_strategy_values(self) -> None:
         assert ChunkStrategy.FIXED == "fixed"
-        assert ChunkStrategy.SEMANTIC == "semantic"
+        assert ChunkStrategy.RECURSIVE == "recursive"
         assert ChunkStrategy.STRUCTURAL == "structural"
 
     def test_retrieval_method_is_string(self) -> None:

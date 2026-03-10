@@ -95,16 +95,7 @@ See [examples/](https://github.com/Aamirofficiall/rag-playbook/tree/main/example
 # Minimal (in-memory store, OpenAI)
 pip install rag-playbook[openai]
 
-# With ChromaDB
-pip install rag-playbook[openai,chromadb]
-
-# With pgvector
-pip install rag-playbook[openai,pgvector]
-
-# With re-ranking support (Pattern 03)
-pip install rag-playbook[openai,chromadb,reranking]
-
-# Everything
+# Everything (includes planned vector store backends)
 pip install rag-playbook[all]
 ```
 
@@ -199,20 +190,10 @@ DEFAULT_LLM_MODEL=openai/gpt-4o-mini            # OpenRouter model format
 
 ### Vector store backends
 
-The default in-memory store re-embeds every session. For persistent storage:
-
-```bash
-# ChromaDB (pip install rag-playbook[chromadb])
-VECTOR_STORE_PROVIDER=chromadb
-
-# pgvector (pip install rag-playbook[pgvector])
-VECTOR_STORE_PROVIDER=pgvector
-PGVECTOR_URL=postgresql://user:pass@localhost:5432/ragdb
-
-# Qdrant (pip install rag-playbook[qdrant])
-VECTOR_STORE_PROVIDER=qdrant
-QDRANT_URL=http://localhost:6333
-```
+The default in-memory store works out of the box but re-embeds every session.
+ChromaDB, pgvector, and Qdrant are planned as persistent backends — the
+optional dependencies are installable but the store implementations are not yet
+wired up. Contributions welcome.
 
 Or pass a `Settings` object directly in code. See [.env.example](https://github.com/Aamirofficiall/rag-playbook/blob/main/.env.example) for all options.
 
@@ -224,12 +205,7 @@ Document → Chunk → EmbeddedChunk → RetrievedChunk → RAGResult
           Chunker    Embedder       VectorStore        LLM
 ```
 
-Design patterns used:
-- **Strategy** — Swappable LLM and embedding providers
-- **Repository** — Vector store abstraction
-- **Template Method** — BaseRAGPattern with overridable pipeline steps
-- **Decorator** — CachedEmbedder wrapping any embedder with SHA-256 keyed cache
-- **Factory** — `create_pattern()`, `create_llm()`, `create_embedder()`, etc.
+LLM providers, embedders, and vector stores are all swappable. Each RAG pattern extends a base class and overrides only the steps it needs. Embeddings are cached automatically so running compare across all 8 patterns doesn't re-embed your docs 8 times.
 
 See [Architecture Guide](https://github.com/Aamirofficiall/rag-playbook/blob/main/docs/ARCHITECTURE.md) for details.
 
@@ -245,43 +221,6 @@ make check      # Run all checks
 ```
 
 See [CONTRIBUTING.md](https://github.com/Aamirofficiall/rag-playbook/blob/main/CONTRIBUTING.md) for the full guide.
-
-## Project Structure
-
-```
-src/rag_playbook/
-├── core/
-│   ├── llm.py           # LLM client (OpenAI, Anthropic)
-│   ├── embedder.py       # Embedding with caching
-│   ├── vector_store.py   # Vector store abstraction
-│   ├── chunker.py        # Document chunking strategies
-│   ├── evaluator.py      # LLM-as-judge evaluation
-│   ├── models.py         # Immutable pipeline data models
-│   ├── config.py         # Settings via pydantic-settings
-│   ├── cost.py           # Per-model cost tracking
-│   └── prompts.py        # All prompt templates
-├── patterns/
-│   ├── base.py           # Template Method base class
-│   ├── naive.py          # Pattern 01: Baseline
-│   ├── hybrid_search.py  # Pattern 02: BM25 + vector
-│   ├── reranking.py      # Pattern 03: LLM reranking
-│   ├── parent_child.py   # Pattern 04: Context expansion
-│   ├── query_decomposition.py  # Pattern 05: Sub-queries
-│   ├── hyde.py           # Pattern 06: Hypothetical docs
-│   ├── self_correcting.py     # Pattern 07: Faithfulness check
-│   └── agentic.py        # Pattern 08: Tool-calling loop
-├── cli/
-│   ├── app.py            # Typer CLI root
-│   ├── compare_cmd.py    # The killer feature
-│   ├── run_cmd.py        # Single pattern execution
-│   ├── recommend_cmd.py  # LLM-powered recommendation
-│   ├── ingest_cmd.py     # Document ingestion pipeline
-│   ├── patterns_cmd.py   # List patterns
-│   └── formatters.py     # Rich terminal output
-└── utils/
-    ├── timer.py          # Timing context manager
-    └── tokenizer.py      # tiktoken helpers
-```
 
 ## Author
 

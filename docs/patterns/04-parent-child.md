@@ -30,10 +30,14 @@ Question
 [LLM Generate] --> answer from expanded parent chunks
 ```
 
-The retrieval targets small, precise chunks. The postprocessing step expands each
-matched chunk by including `_PARENT_WINDOW=2` chunks before and after it. This
-gives the LLM a coherent section of the original document rather than a narrow
-fragment.
+The retrieval targets small, precise chunks. The postprocessing step is designed to
+expand each matched chunk by including surrounding chunks from the same document.
+
+> **Note:** The current implementation returns child chunks as-is without
+> expanding to parent context. A production implementation would query the store
+> for adjacent chunks (by `document_id` and `chunk_index`) and concatenate them.
+> The `_PARENT_WINDOW=2` constant defines how many chunks before/after to include
+> once parent expansion is implemented.
 
 ## When to Use
 

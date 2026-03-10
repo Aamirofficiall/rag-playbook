@@ -14,15 +14,6 @@ from rag_playbook.core.models import RAGResult
 
 console = Console()
 
-_DOTS = ["○", "●"]
-
-
-def _score_to_dots(score: float, max_dots: int = 5) -> str:
-    """Map a 0-1 score to filled/empty dot visualization."""
-    filled = round(score * max_dots)
-    return "".join(_DOTS[1] if i < filled else _DOTS[0] for i in range(max_dots))
-
-
 def print_comparison_header(query: str, chunk_count: int, doc_source: str) -> None:
     """Print the comparison command header panel."""
     console.print(

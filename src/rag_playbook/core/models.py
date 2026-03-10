@@ -34,7 +34,6 @@ class ChunkStrategy(StrEnum):
 
     FIXED = "fixed"
     RECURSIVE = "recursive"
-    SEMANTIC = "semantic"
     STRUCTURAL = "structural"
 
 

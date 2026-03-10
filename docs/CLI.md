@@ -129,6 +129,30 @@ rag-playbook ingest --data ./documents --chunker recursive --chunk-size 256
 
 ---
 
+## `rag-playbook bench`
+
+Run the full benchmark suite across datasets and patterns.
+
+```
+rag-playbook bench --datasets hotpotqa --patterns naive,reranking --output-dir ./results
+```
+
+### Options
+
+| Flag | Short | Default | Description |
+|------|-------|---------|-------------|
+| `--datasets` | `-d` | all | Comma-separated dataset names to benchmark |
+| `--patterns` | `-p` | all | Comma-separated pattern names to include |
+| `--output-dir` | `-o` | `benchmark_results` | Directory for benchmark results |
+
+### What it does
+
+1. Loads the specified benchmark datasets (requires `pip install -e '.[bench]'`)
+2. Runs each selected pattern against each dataset
+3. Saves results to the output directory
+
+---
+
 ## `rag-playbook patterns`
 
 List all registered patterns with their descriptions.
@@ -155,7 +179,7 @@ Variable names match the settings fields directly — no prefix needed.
 | `DEFAULT_LLM_MODEL` | `gpt-4o-mini` | Model name |
 | `EMBEDDING_PROVIDER` | `openai` | Embedding provider |
 | `EMBEDDING_MODEL` | `text-embedding-3-small` | Embedding model |
-| `VECTOR_STORE_PROVIDER` | `memory` | Vector store: `memory`, `chromadb`, `pgvector`, `qdrant` |
+| `VECTOR_STORE_PROVIDER` | `memory` | Vector store (only `memory` is currently implemented) |
 | `DEFAULT_TOP_K` | `5` | Default number of chunks to retrieve |
 | `HYBRID_SEARCH_ALPHA` | `0.5` | Weight for vector vs keyword in hybrid search (0=keyword, 1=vector) |
 | `DEFAULT_CHUNK_SIZE` | `512` | Default tokens per chunk |
