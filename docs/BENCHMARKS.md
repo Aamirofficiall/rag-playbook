@@ -26,7 +26,7 @@ make charts
 
 ## Methodology
 
-1. Each dataset is loaded and documents are chunked with the default `recursive`
+1. Each dataset is loaded and documents are chunked with the default `fixed`
    chunker at 512 tokens with 50-token overlap.
 2. Every pattern runs against every query in the dataset.
 3. Metrics are collected per query:
