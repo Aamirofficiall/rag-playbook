@@ -14,6 +14,7 @@ from rag_playbook.core.models import RAGResult
 
 console = Console()
 
+
 def print_comparison_header(query: str, chunk_count: int, doc_source: str) -> None:
     """Print the comparison command header panel."""
     console.print(
